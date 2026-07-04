@@ -1,9 +1,16 @@
+@use "styles/colors" as colors;
 @use "styles/index" as index;
 @use "styles/fonts" as fonts;
 
 * {
 	box-sizing: border-box;
 	font-family: Arial, monospace;
+}
+
+html,
+body,
+#root {
+	min-height: 100%;
 }
 
 .title {
@@ -15,5 +22,9 @@
 }
 
 body {
-	padding-top: index.$navbar-height;
+	margin: 0;
+	background: colors.$gray-100;
+	color: colors.$secondary;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }

@@ -1,6 +1,6 @@
 {
-  "name": "@brunoandrade/web",
-  "version": "0.1.0",
+  "name": "portfolio",
+  "version": "1.0.0",
   "private": false,
   "scripts": {
     "start": "react-scripts start",

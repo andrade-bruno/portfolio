@@ -1,10 +1,21 @@
 @use "styles/index" as index;
 
+.shell {
+	position: relative;
+	min-height: 100vh;
+}
+
 .main {
-	padding: index.$padding;
 	display: flex;
 	flex-direction: column;
-	gap: index.$gap;
-	height: 100%;
-	width: 100%;
+	gap: 40px;
+	min-height: 100vh;
+	padding: index.$padding;
+	padding-left: calc(index.$sidebar-width + (index.$padding * 2));
+}
+
+@media (max-width: 900px) {
+	.main {
+		padding: index.$padding;
+	}
 }
