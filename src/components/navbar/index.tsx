@@ -1,4 +1,6 @@
+import { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router";
+import { SearchModal } from "components/search-modal";
 import styles from "./navbar.module.scss";
 
 const LogoIcon = () => (
@@ -53,44 +55,71 @@ const navItems = [
   { to: "/personal", label: "Personal", icon: <PersonalIcon />, end: false, badge: false },
 ];
 
-export const NavBar = () => (
-  <aside className={styles.container}>
-    {/* Orange right stripe with notch */}
-    <div className={styles.stripe} aria-hidden="true">
-      <div className={styles.notch} />
-    </div>
+export const NavBar = () => {
+  const [searchOpen, setSearchOpen] = useState(false);
 
-    {/* Top: logo + nav icons */}
-    <div className={styles.topSection}>
-      <Link to="/" className={styles.logo} aria-label="Portfolio home" title="Portfolio home">
-        <LogoIcon />
-      </Link>
+  // Global Ctrl+K / Cmd+K shortcut
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      if ((e.ctrlKey || e.metaKey) && e.key === "k") {
+        e.preventDefault();
+        setSearchOpen((o) => !o);
+      }
+    };
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, []);
 
-      <nav className={styles.nav} aria-label="Main navigation">
-        {navItems.map((item) => (
-          <NavLink
-            key={item.to}
-            to={item.to}
-            end={item.end}
-            className={({ isActive }) =>
-              `${styles.navItem}${isActive ? ` ${styles.active}` : ""}`
-            }
-            title={item.label}
-            aria-label={item.label}
+  return (
+    <>
+      <aside className={styles.container}>
+        {/* Orange right stripe with notch */}
+        <div className={styles.stripe} aria-hidden="true">
+          <div className={styles.notch} />
+        </div>
+
+        {/* Top section: logo + nav + search */}
+        <div className={styles.topSection}>
+          <Link to="/" className={styles.logo} aria-label="Home" title="Home">
+            <LogoIcon />
+          </Link>
+
+          <nav className={styles.nav} aria-label="Main Navigation">
+            {navItems.map((item) => (
+              <NavLink
+                key={item.to}
+                to={item.to}
+                end={item.end}
+                className={({ isActive }) =>
+                  `${styles.navItem}${isActive ? ` ${styles.active}` : ""}`
+                }
+                title={item.label}
+                aria-label={item.label}
+              >
+                {item.icon}
+                {item.badge && <span className={styles.badge} aria-hidden="true" />}
+              </NavLink>
+            ))}
+          </nav>
+
+          <button
+            className={styles.searchBtn}
+            type="button"
+            onClick={() => setSearchOpen(true)}
+            aria-label="Search (Ctrl+K)"
+            title="Search (Ctrl+K)"
           >
-            {item.icon}
-            {item.badge && <span className={styles.badge} aria-hidden="true" />}
-          </NavLink>
-        ))}
-      </nav>
-    </div>
+            <SearchIcon />
+          </button>
+        </div>
 
-    <button className={styles.searchBtn} type="button" aria-label="Search" title="Search">
-      <SearchIcon />
-    </button>
+        {/* Bottom: avatar */}
+        <div className={styles.avatar} aria-label="Profile" title="Profile">
+          <span>BA</span>
+        </div>
+      </aside>
 
-    <div className={styles.avatar} aria-label="Profile" title="Profile">
-      <span>BA</span>
-    </div>
-  </aside>
-);
+      {searchOpen && <SearchModal onClose={() => setSearchOpen(false)} />}
+    </>
+  );
+};
