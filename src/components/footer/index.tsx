@@ -12,19 +12,18 @@ const serviceLinks = [
   { label: "AWC ECS" },
   { label: "Google Cloud VM" },
   { label: "E-Commerce" },
-  { label: "Games" },
 ];
 
 const socialLinks = [
   {
     label: "LinkedIn",
     href: "https://www.linkedin.com/in/bruno--andrade",
-    iconPath: "in",
+    iconPath: `${process.env.PUBLIC_URL}/logos/linkedin.png`,
   },
   {
     label: "GitHub",
     href: "https://github.com/andrade-bruno",
-    iconPath: "gh",
+    iconPath: `${process.env.PUBLIC_URL}/logos/github.png`,
   },
 ];
 
@@ -101,7 +100,7 @@ export const Footer = () => {
             rel="noreferrer"
             aria-label={item.label}
           >
-            <span>{item.iconPath}</span>
+            <img src={item.iconPath} alt={item.label} />
           </a>
         ))}
       </div>

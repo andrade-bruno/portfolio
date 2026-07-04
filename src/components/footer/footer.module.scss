@@ -138,10 +138,10 @@
 	color: #111;
 	transition: transform 0.2s ease;
 
-	span {
-		font-size: 1.7rem;
-		font-weight: 700;
-		line-height: 1;
+	img {
+		width: 28px;
+		height: 28px;
+		object-fit: contain;
 	}
 
 	&:hover {
