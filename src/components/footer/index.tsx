@@ -27,20 +27,20 @@ const socialLinks = [
   },
 ];
 
-const ContactRow = ({
-  icon,
-  children,
-}: {
-  icon: string;
-  children: string;
-}) => (
-  <div className={styles.contactRow}>
-    <span className={styles.contactIcon} aria-hidden="true">
-      {icon}
-    </span>
-    <span>{children}</span>
-  </div>
-);
+const contactRows = [
+  {
+    icon: `${process.env.PUBLIC_URL}/footer/location.svg`,
+    text: "Santos, São Paulo, Brazil",
+  },
+  {
+    icon: `${process.env.PUBLIC_URL}/footer/phone.svg`,
+    text: "+55 (13) 9913-8854",
+  },
+  {
+    icon: `${process.env.PUBLIC_URL}/footer/mail.svg`,
+    text: "contact@brunoandrade.dev.br",
+  },
+];
 
 export const Footer = () => {
   return (
@@ -83,9 +83,14 @@ export const Footer = () => {
         <section className={styles.column}>
           <h3 className={styles.subheading}>Contact</h3>
           <div className={styles.contactList}>
-            <ContactRow icon="⌖">Santos, São Paulo, Brazil</ContactRow>
-            <ContactRow icon="☎">+55 (13) 9913-8854</ContactRow>
-            <ContactRow icon="✉">contact@brunoandrade.dev.br</ContactRow>
+            {contactRows.map((row) => (
+              <div key={row.text} className={styles.contactRow}>
+                <span className={styles.contactIcon}>
+                  <img src={row.icon} alt="" aria-hidden="true" />
+                </span>
+                <span>{row.text}</span>
+              </div>
+            ))}
           </div>
         </section>
       </div>
