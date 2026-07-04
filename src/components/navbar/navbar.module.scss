@@ -1,108 +1,190 @@
 @use "styles/colors" as colors;
-@use "styles/fonts" as fonts;
 @use "styles/index" as index;
 
 .container {
-	position: absolute;
-	top: index.$padding;
-	bottom: index.$padding;
-	left: index.$padding;
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
 	width: index.$sidebar-width;
 	display: flex;
 	flex-direction: column;
+	align-items: center;
 	justify-content: space-between;
-	gap: index.$gap;
-	padding: 28px;
-	border: 1px solid colors.$gray-300;
-	border-radius: 28px;
-	background: rgba(colors.$light, 0.9);
-	box-shadow: 0 30px 80px rgba(colors.$dark, 0.08);
-	backdrop-filter: blur(18px);
-	z-index: 10;
+	padding: 20px 0 20px;
+	background: #fff;
+	z-index: 100;
 }
 
-.brand {
+// ─── Orange right stripe ──────────────────────────────────────────────────────
+
+.stripe {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	width: 5px;
+	background: colors.$tertiary;
+}
+
+// Right-pointing triangle notch, centered on the stripe
+.notch {
+	position: absolute;
+	// right edge of notch = 10px past the stripe's right edge
+	right: -10px;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 15px;
+	height: 20px;
+	background: colors.$tertiary;
+	clip-path: polygon(0 0, 0 100%, 100% 50%);
+}
+
+// ─── Logo ─────────────────────────────────────────────────────────────────────
+
+.topSection {
 	display: flex;
 	flex-direction: column;
-	gap: 12px;
+	align-items: center;
+	gap: 8px;
+}
+
+.logo {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 44px;
+	height: 44px;
 	color: colors.$secondary;
+	border-radius: 12px;
+	transition: color 0.15s ease;
+
+	svg {
+		width: 28px;
+		height: 28px;
+	}
+
+	&:hover {
+		color: colors.$tertiary;
+	}
 }
 
-.kicker {
-	font-size: 0.72rem;
-	font-weight: 700;
-	letter-spacing: 0.22em;
-	text-transform: uppercase;
-	color: colors.$tertiary;
-}
-
-.title {
-	font: fonts.$title;
-	font-size: 2rem;
-	line-height: 1;
-}
-
-.subtitle {
-	font-size: 0.95rem;
-	line-height: 1.5;
-	color: rgba(colors.$secondary, 0.72);
-}
+// ─── Nav items ────────────────────────────────────────────────────────────────
 
 .nav {
 	display: flex;
 	flex-direction: column;
-	gap: 12px;
+	align-items: center;
+	gap: 4px;
 }
 
-.link {
+.navItem {
+	position: relative;
 	display: flex;
-	flex-direction: column;
-	gap: 4px;
-	padding: 16px 18px;
-	border: 1px solid transparent;
-	border-radius: 20px;
+	align-items: center;
+	justify-content: center;
+	width: 44px;
+	height: 44px;
+	border-radius: 12px;
 	color: colors.$secondary;
-	background: colors.$gray-100;
 	transition:
-		transform 0.2s ease,
-		border-color 0.2s ease,
-		box-shadow 0.2s ease,
-		background-color 0.2s ease;
+		background 0.15s ease,
+		color 0.15s ease;
 
-	span {
-		font-size: 1rem;
-		font-weight: 700;
-	}
-
-	small {
-		font-size: 0.85rem;
-		color: rgba(colors.$secondary, 0.6);
+	svg {
+		width: 24px;
+		height: 24px;
 	}
 
 	&:hover {
-		transform: translateX(4px);
-		border-color: colors.$gray-300;
-		box-shadow: 0 16px 30px rgba(colors.$dark, 0.08);
+		background: colors.$gray-100;
 	}
 }
 
 .active {
-	border-color: colors.$tertiary;
-	background: colors.$light;
-	box-shadow: 0 18px 34px rgba(colors.$dark, 0.1);
+	color: colors.$tertiary;
+	background: rgba(colors.$tertiary, 0.08);
 }
 
-.footer {
-	font-size: 0.85rem;
-	line-height: 1.5;
-	color: rgba(colors.$secondary, 0.62);
+// Orange notification dot (e.g. Experiences)
+.badge {
+	position: absolute;
+	top: 7px;
+	right: 7px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: colors.$tertiary;
+	border: 2px solid #fff;
 }
+
+// ─── Search button ────────────────────────────────────────────────────────────
+
+.searchBtn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 48px;
+	height: 48px;
+	border-radius: 999px;
+	border: 1.5px solid colors.$gray-300;
+	background: colors.$gray-100;
+	color: colors.$secondary;
+	cursor: pointer;
+	transition: background 0.15s ease;
+
+	svg {
+		width: 20px;
+		height: 20px;
+	}
+
+	&:hover {
+		background: colors.$gray-300;
+	}
+}
+
+// ─── Avatar ───────────────────────────────────────────────────────────────────
+
+.avatar {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	border: 2px solid colors.$secondary;
+	background: colors.$gray-100;
+	color: colors.$secondary;
+	font-size: 0.68rem;
+	font-weight: 700;
+	letter-spacing: 0.04em;
+	cursor: pointer;
+	user-select: none;
+}
+
+// ─── Mobile: collapse to top bar ─────────────────────────────────────────────
 
 @media (max-width: 900px) {
 	.container {
 		position: static;
-		width: auto;
-		min-height: auto;
-		margin: index.$padding;
+		flex-direction: row;
+		width: 100%;
+		height: index.$navbar-height;
+		padding: 0 index.$padding;
+		border-bottom: 4px solid colors.$tertiary;
+	}
+
+	.stripe {
+		display: none;
+	}
+
+	.topSection {
+		flex-direction: row;
+		gap: 0;
+	}
+
+	.nav {
+		flex-direction: row;
 	}
 }
+
