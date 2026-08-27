@@ -24,50 +24,23 @@ export const Home = () => {
   return (
     <section className={styles.page}>
       <div className={styles.hero}>
-        <p className={styles.eyebrow}>Portfolio blueprint</p>
-        <h1 className={styles.title}>Building a clean portfolio system.</h1>
+        <p className={styles.eyebrow}>Home</p>
+        <h1 className={styles.title}>Bruno Andrade</h1>
         <p className={styles.lead}>
-          This first pass turns the README notes into a simple structure: a
-          strong home page, a left-side navigation rail, and focused pages for
-          experience, projects, and personal context.
+          Backend Engineer with professional experience since 2019 and a BSc in Computer Science (UNIP, 2022). Specializes in designing and delivering secure, highly available, and scalable backend systems and microservices using Node.js and Go.
+
+          With strong experience in event-driven architectures, observability, and cloud-native patterns on AWS, proven track record owning end-to-end backend features, improving performance and reliability, leading cross-functional deliveries, and mentoring engineers to raise code quality and operational practices.
+
+          I stand out for being organized, committed to my goals, and for taking leadership in the deliverables I oversee.
         </p>
         <div className={styles.actions}>
-          <Link to="/projects" className={styles.primaryAction}>
-            View projects
-          </Link>
           <Link to="/experiences" className={styles.secondaryAction}>
             Check experiences
           </Link>
+          <Link to="/projects" className={styles.primaryAction}>
+            View projects
+          </Link>
         </div>
-      </div>
-
-      <div className={styles.sections}>
-        <article className={styles.card}>
-          <h2 className={styles.cardTitle}>Current structure</h2>
-          <div className={styles.list}>
-            {structure.map((item) => (
-              <div key={item.title} className={styles.listItem}>
-                <strong className={styles.listItemTitle}>{item.title}</strong>
-                <span className={styles.listItemText}>{item.text}</span>
-              </div>
-            ))}
-          </div>
-        </article>
-
-        <article className={styles.card}>
-          <h2 className={styles.cardTitle}>Visual direction</h2>
-          <p className={styles.cardText}>
-            The layout leans toward a crisp left rail, compact cards, and a
-            restrained palette with orange accents. That keeps the page close
-            to the README references while staying easy to extend.
-          </p>
-          <div className={styles.tagRow}>
-            <span className={styles.tag}>Left rail</span>
-            <span className={styles.tag}>Dark accent</span>
-            <span className={styles.tag}>Case study cards</span>
-            <span className={styles.tag}>Responsive layout</span>
-          </div>
-        </article>
       </div>
     </section>
   );
