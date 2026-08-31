@@ -141,8 +141,269 @@
 	font-weight: 700;
 }
 
+.topBar {
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+	padding: 6px 0 0;
+}
+
+.graphHeader {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 16px;
+	padding: 0 8px;
+}
+
+.graphLabel {
+	font-size: 1.05rem;
+	font-weight: 700;
+	line-height: 1.2;
+}
+
+.graphAction {
+	padding: 0;
+	background: transparent;
+	border: 0;
+	font-size: 0.7rem;
+	font-weight: 600;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: rgba(colors.$secondary, 0.68);
+	cursor: pointer;
+}
+
+.graphGrid {
+	display: grid;
+	gap: 12px;
+	padding: 12px 16px 14px;
+	background: rgba(colors.$light, 0.28);
+	border-radius: 16px;
+}
+
+.skillRow {
+	display: grid;
+	grid-template-columns: 80px 1fr 110px;
+	align-items: center;
+	gap: 14px;
+	min-height: 52px;
+	padding: 0 10px;
+}
+
+.skillTitle {
+	font-size: 1.15rem;
+	font-weight: 800;
+	color: rgba(colors.$secondary, 0.9);
+}
+
+.skillTrack {
+	position: relative;
+	width: 100%;
+	height: 10px;
+	border-radius: 999px;
+	overflow: hidden;
+	background: rgba(colors.$secondary, 0.12);
+}
+
+.skillBar {
+	display: block;
+	height: 100%;
+	border-radius: 999px;
+	background: colors.$tertiary;
+}
+
+.skillMeta {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 8px;
+	font-size: 0.72rem;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: rgba(colors.$secondary, 0.7);
+}
+
+.experienceSection {
+	display: flex;
+	flex-direction: column;
+	gap: 18px;
+}
+
+.sectionTitle {
+	font-size: clamp(2.2rem, 5vw, 3.2rem);
+	line-height: 1.1;
+	font-weight: 800;
+}
+
+.timeline {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: 18px;
+	padding-right: 40px;
+}
+
+.timeline::before {
+	content: "";
+	position: absolute;
+	top: 10px;
+	right: 24px;
+	bottom: 12px;
+	width: 4px;
+	border-radius: 999px;
+	background: linear-gradient(
+		180deg,
+		colors.$tertiary 0%,
+		colors.$tertiary 70%,
+		rgba(colors.$tertiary, 0.38) 100%
+	);
+}
+
+.entry {
+	position: relative;
+	padding-right: 20px;
+}
+
+.entry::after {
+	content: "";
+	position: absolute;
+	right: 19px;
+	top: 50%;
+	width: 16px;
+	height: 16px;
+	transform: translateY(-50%);
+	border-radius: 50%;
+	background: colors.$light;
+	border: 4px solid colors.$tertiary;
+	box-shadow: 0 0 0 2px rgba(colors.$tertiary, 0.14);
+}
+
+.entryCard {
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+	padding: 18px;
+	background: rgba(colors.$light, 0.42);
+	border: 1px solid rgba(colors.$secondary, 0.08);
+	border-radius: 18px;
+	box-shadow: 0 10px 20px rgba(colors.$secondary, 0.03);
+}
+
+.entryRow {
+	display: grid;
+	grid-template-columns: 46px 1fr;
+	align-items: center;
+	gap: 16px;
+}
+
+.entryIcon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 32px;
+	height: 32px;
+	color: colors.$secondary;
+}
+
+.entryIcon svg {
+	width: 24px;
+	height: 24px;
+}
+
+.companyName,
+.period,
+.role {
+	font-size: clamp(1.25rem, 2vw, 2rem);
+	font-weight: 700;
+	line-height: 1.3;
+	color: rgba(colors.$secondary, 0.82);
+}
+
+.companyName {
+	font-size: clamp(1.3rem, 2.2vw, 2rem);
+}
+
+.period,
+.role {
+	font-size: clamp(1.1rem, 1.8vw, 1.55rem);
+	font-weight: 600;
+}
+
+.summary {
+	margin: 0;
+	max-width: 72ch;
+	font-size: 1.02rem;
+	line-height: 1.65;
+	color: rgba(colors.$secondary, 0.75);
+}
+
+.viewLink {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	margin-top: 4px;
+	padding: 0;
+	background: transparent;
+	border: 0;
+	font-size: 1rem;
+	font-weight: 700;
+	color: colors.$tertiary;
+	cursor: pointer;
+}
+
+.viewLink span {
+	font-size: 1.2rem;
+	line-height: 1;
+}
+
 @media (max-width: 900px) {
 	.title {
 		max-width: none;
+	}
+
+	.skillRow {
+		grid-template-columns: 56px 1fr 82px;
+		gap: 10px;
+	}
+
+	.skillMeta {
+		letter-spacing: 0.02em;
+	}
+
+	.timeline {
+		padding-right: 26px;
+	}
+
+	.timeline::before {
+		right: 12px;
+	}
+
+	.entry::after {
+		right: 7px;
+	}
+}
+
+@media (max-width: 640px) {
+	.graphHeader {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.skillRow {
+		grid-template-columns: 1fr;
+		gap: 6px;
+		padding: 8px 0;
+	}
+
+	.entryRow {
+		grid-template-columns: 28px 1fr;
+		gap: 10px;
+	}
+
+	.summary {
+		font-size: 0.96rem;
 	}
 }
