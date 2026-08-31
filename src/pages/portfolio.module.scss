@@ -162,18 +162,6 @@
 	line-height: 1.2;
 }
 
-.graphAction {
-	padding: 0;
-	background: transparent;
-	border: 0;
-	font-size: 0.7rem;
-	font-weight: 600;
-	letter-spacing: 0.08em;
-	text-transform: uppercase;
-	color: rgba(colors.$secondary, 0.68);
-	cursor: pointer;
-}
-
 .graphGrid {
 	display: grid;
 	gap: 12px;
@@ -253,12 +241,7 @@
 	bottom: 12px;
 	width: 4px;
 	border-radius: 999px;
-	background: linear-gradient(
-		180deg,
-		colors.$tertiary 0%,
-		colors.$tertiary 70%,
-		rgba(colors.$tertiary, 0.38) 100%
-	);
+	background: linear-gradient(180deg, colors.$tertiary 0%, colors.$tertiary 70%, rgba(colors.$tertiary, 0.38) 100%);
 }
 
 .entry {
@@ -294,7 +277,8 @@
 .entryRow {
 	display: grid;
 	grid-template-columns: 46px 1fr;
-	align-items: center;
+	/* align items to start so multi-line content grows naturally instead of being vertically centered */
+	align-items: start;
 	gap: 16px;
 }
 
@@ -307,7 +291,8 @@
 	color: colors.$secondary;
 }
 
-.entryIcon svg {
+.entryIcon svg,
+.entryIcon img {
 	width: 24px;
 	height: 24px;
 }
@@ -332,11 +317,28 @@
 }
 
 .summary {
+	display: flex;
+	flex-direction: column;
+	gap: 0.35rem;
 	margin: 0;
-	max-width: 72ch;
+	width: 100%;
+	max-width: none;
 	font-size: 1.02rem;
 	line-height: 1.65;
 	color: rgba(colors.$secondary, 0.75);
+	white-space: normal;
+	overflow-wrap: anywhere;
+	word-wrap: break-word;
+	word-break: normal;
+	hyphens: auto;
+}
+
+.summaryLine {
+	display: block;
+	white-space: normal;
+	overflow-wrap: anywhere;
+	word-wrap: break-word;
+	hyphens: auto;
 }
 
 .viewLink {
