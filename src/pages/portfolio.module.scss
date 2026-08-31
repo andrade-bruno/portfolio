@@ -289,12 +289,33 @@
 	width: 32px;
 	height: 32px;
 	color: colors.$secondary;
+	transition:
+		opacity 0.28s ease,
+		transform 0.28s ease,
+		width 0.28s ease,
+		margin 0.28s ease;
 }
 
 .entryIcon svg,
 .entryIcon img {
 	width: 24px;
 	height: 24px;
+	transition: opacity 0.28s ease, transform 0.28s ease;
+}
+
+.entryIconHidden {
+	opacity: 0;
+	transform: scale(0.8);
+	width: 0;
+	margin-right: -4px;
+	pointer-events: none;
+}
+
+.entryIconVisible {
+	opacity: 1;
+	transform: scale(1);
+	width: 32px;
+	margin-right: 0;
 }
 
 .companyName,
@@ -316,6 +337,25 @@
 	font-weight: 600;
 }
 
+.summaryWrap {
+	display: grid;
+	grid-template-rows: 1fr;
+	transition: grid-template-rows 0.32s ease, opacity 0.28s ease, transform 0.28s ease;
+	overflow: hidden;
+}
+
+.summaryWrapVisible {
+	opacity: 1;
+	transform: translateY(0);
+	grid-template-rows: 1fr;
+}
+
+.summaryWrapHidden {
+	opacity: 0;
+	transform: translateY(-4px);
+	grid-template-rows: 0fr;
+}
+
 .summary {
 	display: flex;
 	flex-direction: column;
@@ -331,6 +371,7 @@
 	word-wrap: break-word;
 	word-break: normal;
 	hyphens: auto;
+	min-height: 0;
 }
 
 .summaryLine {
@@ -354,6 +395,12 @@
 	font-weight: 700;
 	color: colors.$tertiary;
 	cursor: pointer;
+	transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.viewLink:hover {
+	color: rgba(colors.$tertiary, 0.8);
+	transform: translateY(-1px);
 }
 
 .viewLink span {

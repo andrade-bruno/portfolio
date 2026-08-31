@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styles from "./portfolio.module.scss";
 
 const experienceEntries = [
@@ -18,6 +19,8 @@ const experienceEntries = [
 const getIconPath = (name: string) => `${process.env.PUBLIC_URL}/experiences/${name}`;
 
 export const Experiences = () => {
+  const [expanded, setExpanded] = useState(true);
+
   const techStats = [
     { label: "JS", experience: "Experience", level: 75, accent: "#1a1a1a" },
     { label: "TS", experience: "Knowledge", level: 90, accent: "#1a1a1a" },
@@ -54,20 +57,36 @@ export const Experiences = () => {
                 </div>
 
                 <div className={styles.entryRow}>
-                  <span className={styles.entryIcon}>
-                    <img src={getIconPath('job-activities.svg')} alt="" aria-hidden="true" />
+                  <span
+                    className={`${styles.entryIcon} ${expanded ? styles.entryIconVisible : styles.entryIconHidden}`}
+                    aria-hidden={!expanded}
+                  >
+                    <img src={getIconPath('job-activities.svg')} alt="" />
                   </span>
-                  <div className={styles.summary}>
-                    {entry.summary.map((line) => (
-                      <span key={line} className={styles.summaryLine}>
-                        {line}
-                      </span>
-                    ))}
+
+                  <div
+                    className={`${styles.summaryWrap} ${expanded ? styles.summaryWrapVisible : styles.summaryWrapHidden}`}
+                    aria-live="polite"
+                  >
+                    {expanded && (
+                      <div className={styles.summary}>
+                        {entry.summary.map((line) => (
+                          <span key={line} className={styles.summaryLine}>
+                            {line}
+                          </span>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 </div>
 
-                <button className={styles.viewLink} type="button">
-                  View less <span aria-hidden="true">↑</span>
+                <button
+                  className={styles.viewLink}
+                  type="button"
+                  onClick={() => setExpanded((current) => !current)}
+                  aria-expanded={expanded}
+                >
+                  {expanded ? "View less" : "View more"} <span aria-hidden="true">{expanded ? "↑" : "↓"}</span>
                 </button>
               </div>
             </article>
