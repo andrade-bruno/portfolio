@@ -18,8 +18,9 @@
     "baseUrl": "src",
     "paths": {
       "components": ["./components"],
+      "interfaces": ["./interfaces"],
       "pages": ["./pages"],
-      "routes": ["./routes"]
+      "routes": ["./routes"],
     }
   },
   "include": ["src", "my-app/src/App.tsx", "my-app/src/react-app-env.d.ts"]
