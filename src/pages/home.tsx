@@ -1,5 +1,6 @@
 import { Link } from "react-router";
-import pageStyles from "./portfolio.module.scss";
+import styles from "./home.module.scss";
+import pageStyles from "./index.module.scss";
 
 const structure = [
   {

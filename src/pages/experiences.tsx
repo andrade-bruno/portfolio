@@ -1,7 +1,7 @@
 import { ExperienceCard } from "components/experience";
 import { Experience } from "interfaces";
-import pageStyles from "./portfolio.module.scss";
 import styles from "./experiences.module.scss";
+import pageStyles from "./index.module.scss";
 
 const experienceEntries: Experience[] = [
   {

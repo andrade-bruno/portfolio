@@ -1,4 +1,5 @@
-import pageStyles from "./portfolio.module.scss";
+import pageStyles from "./index.module.scss";
+import styles from "./personal.module.scss";
 
 const personal = [
   {
