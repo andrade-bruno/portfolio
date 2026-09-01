@@ -6,20 +6,6 @@
 	padding-right: 20px;
 }
 
-.entry::after {
-	content: "";
-	position: absolute;
-	right: 19px;
-	top: 50%;
-	width: 16px;
-	height: 16px;
-	transform: translateY(-50%);
-	border-radius: 50%;
-	background: colors.$light;
-	border: 4px solid colors.$tertiary;
-	box-shadow: 0 0 0 2px rgba(colors.$tertiary, 0.14);
-}
-
 .entryCard {
 	display: flex;
 	flex-direction: column;
