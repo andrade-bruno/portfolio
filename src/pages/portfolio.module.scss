@@ -26,7 +26,7 @@
 .title {
 	font-size: clamp(3rem, 7vw, 5.6rem);
 	line-height: 0.95;
-	max-width: 12ch;
+	max-width: 20ch;
 }
 
 .lead {
@@ -211,18 +211,6 @@
 	letter-spacing: 0.06em;
 	text-transform: uppercase;
 	color: rgba(colors.$secondary, 0.7);
-}
-
-.experienceSection {
-	display: flex;
-	flex-direction: column;
-	gap: 18px;
-}
-
-.sectionTitle {
-	font-size: clamp(2.2rem, 5vw, 3.2rem);
-	line-height: 1.1;
-	font-weight: 800;
 }
 
 .timeline {

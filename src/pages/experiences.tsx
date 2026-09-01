@@ -87,8 +87,9 @@ const techStats = [
 export const Experiences = () => {
   return (
     <section className={styles.page}>
-      <div className={styles.experienceSection}>
-        <h1 className={styles.sectionTitle}>Experiences</h1>
+      <div className={styles.hero}>
+        <p className={styles.eyebrow}>Professional Experiences</p>
+        <h1 className={styles.title}>What I've Done</h1>
 
         <div className={styles.timeline}>
           {experienceEntries.map((entry) => (
