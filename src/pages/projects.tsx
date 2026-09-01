@@ -1,4 +1,4 @@
-import styles from "./portfolio.module.scss";
+import pageStyles from "./portfolio.module.scss";
 
 const projects = [
   {
@@ -17,21 +17,21 @@ const projects = [
 
 export const Projects = () => {
   return (
-    <section className={styles.page}>
-      <div className={styles.hero}>
-        <p className={styles.eyebrow}>Project shelf</p>
-        <h1 className={styles.title}>Curate fewer projects, but explain them better.</h1>
-        <p className={styles.lead}>
+    <section className={pageStyles.page}>
+      <div className={pageStyles.hero}>
+        <p className={pageStyles.eyebrow}>Project shelf</p>
+        <h1 className={pageStyles.title}>Curate fewer projects, but explain them better.</h1>
+        <p className={pageStyles.lead}>
           Use this space for selected work, not a long list. Each card should
           make the reader understand your role, the stack, and why it matters.
         </p>
       </div>
 
-      <div className={styles.sections}>
+      <div className={pageStyles.sections}>
         {projects.map((item) => (
-          <article key={item.title} className={styles.card}>
-            <h2 className={styles.cardTitle}>{item.title}</h2>
-            <p className={styles.cardText}>{item.text}</p>
+          <article key={item.title} className={pageStyles.card}>
+            <h2 className={pageStyles.cardTitle}>{item.title}</h2>
+            <p className={pageStyles.cardText}>{item.text}</p>
           </article>
         ))}
       </div>

@@ -1,0 +1,129 @@
+@use "styles/colors" as colors;
+
+.timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding-right: 40px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  right: 24px;
+  bottom: 12px;
+  width: 4px;
+  border-radius: 999px;
+  background: linear-gradient(
+    180deg,
+    colors.$tertiary 0%,
+    colors.$tertiary 70%,
+    rgba(colors.$tertiary, 0.38) 100%
+  );
+}
+
+.topBar {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 6px 0 0;
+}
+
+.graphHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 0 8px;
+}
+
+.graphLabel {
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.graphGrid {
+  display: grid;
+  gap: 12px;
+  padding: 12px 16px 14px;
+  background: rgba(colors.$light, 0.28);
+  border-radius: 16px;
+}
+
+.skillRow {
+  display: grid;
+  grid-template-columns: 80px 1fr 110px;
+  align-items: center;
+  gap: 14px;
+  min-height: 52px;
+  padding: 0 10px;
+}
+
+.skillTitle {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: rgba(colors.$secondary, 0.9);
+}
+
+.skillTrack {
+  position: relative;
+  width: 100%;
+  height: 10px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: rgba(colors.$secondary, 0.12);
+}
+
+.skillBar {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: colors.$tertiary;
+}
+
+.skillMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(colors.$secondary, 0.7);
+}
+
+@media (max-width: 900px) {
+  .skillRow {
+    grid-template-columns: 56px 1fr 82px;
+    gap: 10px;
+  }
+
+  .skillMeta {
+    letter-spacing: 0.02em;
+  }
+
+  .timeline {
+    padding-right: 26px;
+  }
+
+  .timeline::before {
+    right: 12px;
+  }
+}
+
+@media (max-width: 640px) {
+  .graphHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .skillRow {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    padding: 8px 0;
+  }
+}

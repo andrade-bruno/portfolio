@@ -1,6 +1,7 @@
 import { ExperienceCard } from "components/experience";
 import { Experience } from "interfaces";
-import styles from "./portfolio.module.scss";
+import pageStyles from "./portfolio.module.scss";
+import styles from "./experiences.module.scss";
 
 const experienceEntries: Experience[] = [
   {
@@ -86,10 +87,10 @@ const techStats = [
 
 export const Experiences = () => {
   return (
-    <section className={styles.page}>
-      <div className={styles.hero}>
-        <p className={styles.eyebrow}>Professional Experiences</p>
-        <h1 className={styles.title}>What I've Done</h1>
+    <section className={pageStyles.page}>
+      <div className={pageStyles.hero}>
+        <p className={pageStyles.eyebrow}>Professional Experiences</p>
+        <h1 className={pageStyles.title}>What I've Done</h1>
 
         <div className={styles.timeline}>
           {experienceEntries.map((entry) => (

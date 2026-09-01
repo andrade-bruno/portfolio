@@ -1,13 +1,13 @@
-import { Outlet } from "react-router";
-import styles from "./layout.module.scss";
-import { NavBar } from "components/navbar";
 import { Footer } from "components/footer";
+import { NavBar } from "components/navbar";
+import { Outlet } from "react-router";
+import pageStyles from "./layout.module.scss";
 
 export const DefaultLayout = () => {
   return (
-    <div className={styles.shell}>
+    <div className={pageStyles.shell}>
       <NavBar />
-      <div className={styles.main}>
+      <div className={pageStyles.main}>
         <Outlet />
         <Footer />
       </div>
