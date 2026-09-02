@@ -21,6 +21,8 @@
       "interfaces": ["./interfaces"],
       "pages": ["./pages"],
       "routes": ["./routes"],
+      "styles": ["./styles"],
+      "utils": ["./utils"]
     }
   },
   "include": ["src", "my-app/src/App.tsx", "my-app/src/react-app-env.d.ts"]

@@ -1,7 +1,8 @@
-import { useEffect, useRef, useState, useCallback } from "react";
+import { SearchEntry, searchIndex } from "data/search-index";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { useNavigate } from "react-router";
-import { searchIndex, SearchEntry } from "data/search-index";
+import { ImgIcon } from "utils";
 import styles from "./search-modal.module.scss";
 
 interface Props {
@@ -97,10 +98,10 @@ export const SearchModal = ({ onClose }: Props) => {
       >
         {/* Input */}
         <div className={styles.inputRow}>
-          <svg className={styles.inputIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-            <circle cx="11" cy="11" r="8" />
-            <line x1="21" y1="21" x2="16.65" y2="16.65" />
-          </svg>
+          <ImgIcon
+            className={styles.inputIcon}
+            path="icons/search.svg"
+          />
           <input
             ref={inputRef}
             className={styles.input}

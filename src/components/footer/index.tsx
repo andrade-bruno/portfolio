@@ -1,4 +1,5 @@
 import { Link } from "react-router";
+import { ImgIcon } from "../../utils";
 import styles from "./footer.module.scss";
 
 const exploreLinks = [
@@ -18,26 +19,26 @@ const socialLinks = [
   {
     label: "LinkedIn",
     href: "https://www.linkedin.com/in/bruno--andrade",
-    iconPath: `${process.env.PUBLIC_URL}/logos/linkedin.png`,
+    iconPath: `logos/linkedin.png`,
   },
   {
     label: "GitHub",
     href: "https://github.com/andrade-bruno",
-    iconPath: `${process.env.PUBLIC_URL}/logos/github.png`,
+    iconPath: `logos/github.png`,
   },
 ];
 
 const contactRows = [
   {
-    icon: `${process.env.PUBLIC_URL}/footer/location.svg`,
+    iconPath: `icons/location.svg`,
     text: "Santos, São Paulo, Brazil",
   },
   {
-    icon: `${process.env.PUBLIC_URL}/footer/phone.svg`,
+    iconPath: `icons/phone.svg`,
     text: "+55 (13) 9913-8854",
   },
   {
-    icon: `${process.env.PUBLIC_URL}/footer/mail.svg`,
+    iconPath: `icons/mail.svg`,
     text: "contact@brunoandrade.dev.br",
   },
 ];
@@ -86,7 +87,7 @@ export const Footer = () => {
             {contactRows.map((row) => (
               <div key={row.text} className={styles.contactRow}>
                 <span className={styles.contactIcon}>
-                  <img src={row.icon} alt="" aria-hidden="true" />
+                  <ImgIcon path={row.iconPath} />
                 </span>
                 <span>{row.text}</span>
               </div>
@@ -105,7 +106,7 @@ export const Footer = () => {
             rel="noreferrer"
             aria-label={item.label}
           >
-            <img src={item.iconPath} alt={item.label} />
+            <ImgIcon path={item.iconPath} />
           </a>
         ))}
       </div>
