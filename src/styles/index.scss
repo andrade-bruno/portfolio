@@ -3,3 +3,10 @@ $gap: 16px;
 
 $navbar-height: 80px;
 $sidebar-width: 80px;
+
+$transition-property: all;
+$transition-duration: 1s;
+$transition-timing-function: ease;
+$transition-delay: 0s;
+
+$transition: $transition-property $transition-duration $transition-timing-function $transition-delay;

@@ -31,7 +31,10 @@ export const ExperienceCard = ({ entry }: { entry: Experience }) => {
           <span className={styles.companyName}>{entry.company}</span>
         </div>
 
-        <div className={styles.entryRow}>
+        <div
+          className={`${styles.entryRow} ${expanded ? styles.entryRowVisible : styles.entryRowHidden}`}
+          aria-hidden={!expanded}
+        >
           <span
             className={`${styles.entryIcon} ${expanded ? styles.entryIconVisible : styles.entryIconHidden}`}
             aria-hidden={!expanded}
@@ -42,22 +45,21 @@ export const ExperienceCard = ({ entry }: { entry: Experience }) => {
           <div
             className={`${styles.summaryWrap} ${expanded ? styles.summaryWrapVisible : styles.summaryWrapHidden}`}
             aria-live="polite"
+            aria-hidden={!expanded}
           >
-            {expanded && (
-              <div className={styles.summary}>
-                {Array.isArray(entry.summary) ? (
-                  entry.summary.map((line) => (
-                    <span key={line} className={styles.summaryLine}>
-                      {line}
-                    </span>
-                  ))
-                ) : (
-                  <span className={styles.summaryLine}>
-                    {entry.summary}
+            <div className={styles.summary}>
+              {Array.isArray(entry.summary) ? (
+                entry.summary.map((line, idx) => (
+                  <span key={`${entry.company}-line-${idx}`} className={styles.summaryLine}>
+                    {line}
                   </span>
-                )}
-              </div>
-            )}
+                ))
+              ) : (
+                <span className={styles.summaryLine}>
+                  {entry.summary}
+                </span>
+              )}
+            </div>
           </div>
         </div>
 

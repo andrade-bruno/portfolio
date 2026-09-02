@@ -22,6 +22,28 @@
 	grid-template-columns: 46px 1fr;
 	align-items: start;
 	gap: 16px;
+	transition: index.$transition;
+}
+
+.entryRowVisible {
+	opacity: 1;
+	transform: translateY(0);
+	gap: 16px;
+}
+
+.entryRowHidden {
+	opacity: 0;
+	transform: translateY(-6px);
+	gap: 0px;
+}
+
+.entryRowHidden .entryIcon,
+.entryRowHidden .entryIcon img {
+	width: 0;
+	min-width: 0;
+	height: 0;
+	padding: 0;
+	margin: 0;
 }
 
 .entryIcon {
@@ -31,20 +53,14 @@
 	width: 32px;
 	height: 32px;
 	color: colors.$secondary;
-	transition:
-		opacity 0.28s ease,
-		transform 0.28s ease,
-		width 0.28s ease,
-		margin 0.28s ease;
+	transition: index.$transition;
 }
 
 .entryIcon svg,
 .entryIcon img {
 	width: 24px;
 	height: 24px;
-	transition:
-		opacity 0.28s ease,
-		transform 0.28s ease;
+	transition: index.$transition;
 }
 
 .entryIconHidden {
@@ -82,25 +98,27 @@
 }
 
 .summaryWrap {
-	display: grid;
-	grid-template-rows: 1fr;
-	transition:
-		grid-template-rows 0.32s ease,
-		opacity 0.28s ease,
-		transform 0.28s ease;
+	display: block;
 	overflow: hidden;
+	max-height: 0;
+	opacity: 0;
+	transform: translateY(-6px);
+	transition:
+		max-height index.$transition-duration ease,
+		opacity index.$transition-duration ease,
+		transform index.$transition-duration ease;
 }
 
 .summaryWrapVisible {
+	max-height: 999px;
 	opacity: 1;
 	transform: translateY(0);
-	grid-template-rows: 1fr;
 }
 
 .summaryWrapHidden {
+	max-height: 0;
 	opacity: 0;
-	transform: translateY(-4px);
-	grid-template-rows: 0fr;
+	transform: translateY(-6px);
 }
 
 .summary {
@@ -142,9 +160,7 @@
 	font-weight: 700;
 	color: colors.$tertiary;
 	cursor: pointer;
-	transition:
-		color 0.75s ease,
-		transform 0.75s ease;
+	transition: index.$transition;
 }
 
 .viewLink:hover {
@@ -164,7 +180,7 @@
 }
 
 @media (max-width: 640px) {
-	.entryRow {
+	.entryRowVisible {
 		grid-template-columns: 28px 1fr;
 		gap: 10px;
 	}

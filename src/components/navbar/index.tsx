@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
-import { Link, NavLink } from "react-router";
 import { SearchModal } from "components/search-modal";
+import { useEffect, useState } from "react";
+import { Link, NavLink } from "react-router";
 import styles from "./navbar.module.scss";
 
 const LogoIcon = () => (
