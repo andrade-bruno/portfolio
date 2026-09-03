@@ -38,7 +38,14 @@ export interface ITranslation {
 		darkTheme: string;
 		language: string;
 		toggleTheme: string;
-	}
+	},
+	footer: {
+		about: string;
+		aboutDescription: string;
+		explore: string;
+		services: string;
+		contact: string;
+	},
 	home: {
 		description: string;
 		projectsBtn: string;

@@ -1,13 +1,7 @@
 import { GithubIcon, LinkedinIcon, LocationIcon, MailIcon, PhoneIcon } from "components/icons";
 import { Link } from "react-router";
+import { useTranslations } from "../../contexts";
 import styles from "./footer.module.scss";
-
-const exploreLinks = [
-  { label: "Home", to: "/" },
-  { label: "Professional Experiences", to: "/experiences" },
-  { label: "Projects Overviews", to: "/projects" },
-  { label: "Personal Goals", to: "/personal" },
-];
 
 const serviceLinks = [
   { label: "AWC ECS" },
@@ -44,20 +38,29 @@ const contactRows = [
 ];
 
 export const Footer = () => {
+  const { currentTranslation } = useTranslations();
+
+  const exploreLinks = [
+    { label: currentTranslation.nav.home, to: "/" },
+    { label: currentTranslation.nav.experiences, to: "/experiences" },
+    { label: currentTranslation.nav.projects, to: "/projects" },
+    { label: currentTranslation.nav.personal, to: "/personal" },
+  ];
+
   return (
     <footer className={styles.container}>
       <div className={styles.accent} aria-hidden="true" />
 
       <div className={styles.topGrid}>
         <section className={styles.column}>
-          <h3 className={styles.heading}>About</h3>
+          <h3 className={styles.heading}>{currentTranslation.footer.about}</h3>
           <p className={styles.copy}>
-            Born december 2001, I am a passionate software engineer with a strong focus on backend development. I enjoy creating efficient and scalable solutions that make a difference in people's lives.
+            {currentTranslation.footer.aboutDescription}
           </p>
         </section>
 
         <section className={styles.column}>
-          <h3 className={styles.subheading}>Explore</h3>
+          <h3 className={styles.subheading}>{currentTranslation.footer.explore}</h3>
           <nav className={styles.linkList} aria-label="Footer explore links">
             {exploreLinks.map((item) => (
               <Link key={item.to} to={item.to} className={styles.footerLink}>
@@ -68,7 +71,7 @@ export const Footer = () => {
         </section>
 
         <section className={styles.column}>
-          <h3 className={styles.subheading}>Services</h3>
+          <h3 className={styles.subheading}>{currentTranslation.footer.services}</h3>
           <div className={styles.linkList}>
             {serviceLinks.map((item) => (
               <span key={item.label} className={styles.staticLink}>
@@ -79,7 +82,7 @@ export const Footer = () => {
         </section>
 
         <section className={styles.column}>
-          <h3 className={styles.subheading}>Contact</h3>
+          <h3 className={styles.subheading}>{currentTranslation.footer.contact}</h3>
           <div className={styles.contactList}>
             {contactRows.map((row) => (
               <div key={row.text} className={styles.contactRow}>
