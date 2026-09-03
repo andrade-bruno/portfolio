@@ -50,7 +50,7 @@ export const Footer = () => {
 
       <div className={styles.topGrid}>
         <section className={styles.column}>
-          <h2 className={styles.heading}>Bruno Andrade</h2>
+          <h3 className={styles.heading}>About</h3>
           <p className={styles.copy}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
