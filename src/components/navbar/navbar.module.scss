@@ -93,7 +93,43 @@
 	border-radius: 12px;
 	padding: 10px;
 	box-shadow: 0 14px 30px rgba(colors.$secondary, 0.08);
-	min-width: 220px;
+	width: 18rem;
+}
+
+.settingsRow {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	padding: 8px 10px;
+	border-radius: 8px;
+	background: transparent;
+	border: 0;
+	cursor: pointer;
+	font-weight: 700;
+	color: colors.$secondary;
+	transition: index.$transition;
+}
+
+.settingsRow:hover {
+	background: colors.$gray-300;
+}
+
+.settingsClose {
+	margin-top: 8px;
+	background: transparent;
+	border: 0;
+	color: rgba(colors.$secondary, 0.7);
+	font-weight: 600;
+	padding: 6px 8px;
+	border-radius: 8px;
+	cursor: pointer;
+	transition: index.$transition;
+}
+
+.settingsClose:hover {
+	background: colors.$tertiary;
+	color: colors.$primary;
 }
 
 .flagRow {
@@ -108,19 +144,16 @@
 	padding: 4px;
 	border-radius: 8px;
 	cursor: pointer;
-	transition:
-		transform index.$transition-duration ease,
-		box-shadow index.$transition-duration ease,
-		border-color index.$transition-duration ease;
+	transition: index.$transition;
 }
 
 .flagBtn:hover {
-	border-color: rgba(colors.$secondary, 0.12);
+	border-color: colors.$tertiary;
 	transform: translateY(-4px) scale(1.03);
 }
 
 .flagBtn:focus-visible {
-	outline: 2px solid rgba(colors.$tertiary, 0.7);
+	outline: 2px solid colors.$tertiary;
 	outline-offset: 2px;
 }
 
@@ -148,25 +181,6 @@
 	font-weight: 700;
 }
 
-.settingsRow {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	gap: 12px;
-	padding: 8px 10px;
-	border-radius: 8px;
-	background: transparent;
-	border: 0;
-	cursor: pointer;
-	font-weight: 700;
-	color: colors.$secondary;
-	transition: index.$transition;
-}
-
-.settingsRow:hover {
-	background: colors.$gray-100;
-}
-
 .toggleKnob {
 	font-size: 1.05rem;
 	color: colors.$tertiary;
@@ -175,17 +189,6 @@
 .langLabel {
 	font-size: 0.95rem;
 	color: rgba(colors.$secondary, 0.9);
-}
-
-.settingsClose {
-	margin-top: 8px;
-	background: transparent;
-	border: 0;
-	color: rgba(colors.$secondary, 0.7);
-	font-weight: 600;
-	padding: 6px 8px;
-	border-radius: 8px;
-	cursor: pointer;
 }
 
 // ─── Nav items ────────────────────────────────────────────────────────────────
