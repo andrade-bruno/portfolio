@@ -58,7 +58,7 @@ export const NavBar = () => {
               type="button"
               onClick={() => setSettingsOpen((s) => !s)}
             >
-              <ImgIcon path="favicon.svg" />
+              <ImgIcon path="icons/cog.svg" />
             </button>
 
             {settingsOpen && (

@@ -81,8 +81,8 @@ const experienceEntries: Experience[] = [
 ];
 
 const techStats = [
-  { label: "JS", experience: "Experience", level: 75, accent: "#1a1a1a" },
-  { label: "TS", experience: "Knowledge", level: 90, accent: "#1a1a1a" },
+  { label: "JS", experience: "Experience", level: 75 },
+  { label: "TS", experience: "Knowledge", level: 90 },
 ];
 
 export const Experiences = () => {
@@ -109,7 +109,7 @@ export const Experiences = () => {
             <div className={styles.skillRow} key={item.label}>
               <div className={styles.skillTitle}>{item.label}</div>
               <div className={styles.skillTrack}>
-                <span className={styles.skillBar} style={{ width: `${item.level}%`, background: item.accent }} />
+                <span className={styles.skillBar} style={{ width: `${item.level}%` }} />
               </div>
               <div className={styles.skillMeta}>
                 <span>{item.experience}</span>
