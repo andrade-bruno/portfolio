@@ -1,5 +1,5 @@
+import { GithubIcon, LinkedinIcon, LocationIcon, MailIcon, PhoneIcon } from "components/icons";
 import { Link } from "react-router";
-import { ImgIcon } from "../../utils";
 import styles from "./footer.module.scss";
 
 const exploreLinks = [
@@ -19,26 +19,26 @@ const socialLinks = [
   {
     label: "LinkedIn",
     href: "https://www.linkedin.com/in/bruno--andrade",
-    iconPath: `logos/linkedin.png`,
+    icon: <LinkedinIcon />,
   },
   {
     label: "GitHub",
     href: "https://github.com/andrade-bruno",
-    iconPath: `logos/github.png`,
+    icon: <GithubIcon />,
   },
 ];
 
 const contactRows = [
   {
-    iconPath: `icons/location.svg`,
+    icon: <LocationIcon />,
     text: "Santos, São Paulo, Brazil",
   },
   {
-    iconPath: `icons/phone.svg`,
+    icon: <PhoneIcon />,
     text: "+55 (13) 9913-8854",
   },
   {
-    iconPath: `icons/mail.svg`,
+    icon: <MailIcon />,
     text: "contact@brunoandrade.dev.br",
   },
 ];
@@ -52,10 +52,7 @@ export const Footer = () => {
         <section className={styles.column}>
           <h3 className={styles.heading}>About</h3>
           <p className={styles.copy}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
+            Born december 2001, I am a passionate software engineer with a strong focus on backend development. I enjoy creating efficient and scalable solutions that make a difference in people's lives.
           </p>
         </section>
 
@@ -87,7 +84,7 @@ export const Footer = () => {
             {contactRows.map((row) => (
               <div key={row.text} className={styles.contactRow}>
                 <span className={styles.contactIcon}>
-                  <ImgIcon path={row.iconPath} />
+                  {row.icon}
                 </span>
                 <span>{row.text}</span>
               </div>
@@ -106,7 +103,7 @@ export const Footer = () => {
             rel="noreferrer"
             aria-label={item.label}
           >
-            <ImgIcon path={item.iconPath} />
+            {item.icon}
           </a>
         ))}
       </div>

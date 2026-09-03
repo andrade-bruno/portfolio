@@ -1,15 +1,15 @@
+import { CogIcon, ExperiencesIcon, HomeIcon, PersonalIcon, ProjectsIcon, SearchIcon } from "components/icons";
 import { SearchModal } from "components/search-modal";
 import { useEffect, useRef, useState } from "react";
 import { NavLink } from "react-router";
-import { ImgIcon } from "utils";
 import styles from "./navbar.module.scss";
 import { SettingsDropdown } from "./SettingsDropdown";
 
 const navItems = [
-  { to: "/", label: "Home", icon: <ImgIcon path="icons/home.svg" label="Home" />, end: true, badge: false },
-  { to: "/experiences", label: "Experiences", icon: <ImgIcon path="icons/experiences.svg" label="Experiences" />, end: false, badge: true },
-  { to: "/projects", label: "Projects", icon: <ImgIcon path="icons/projects.svg" label="Projects" />, end: false, badge: false },
-  { to: "/personal", label: "Personal", icon: <ImgIcon path="icons/personal.svg" label="Personal" />, end: false, badge: false },
+  { to: "/", label: "Home", icon: <HomeIcon />, end: true },
+  { to: "/experiences", label: "Experiences", icon: <ExperiencesIcon />, end: false },
+  { to: "/projects", label: "Projects", icon: <ProjectsIcon />, end: false },
+  { to: "/personal", label: "Personal", icon: <PersonalIcon />, end: false },
 ];
 
 export const NavBar = () => {
@@ -58,7 +58,7 @@ export const NavBar = () => {
               type="button"
               onClick={() => setSettingsOpen((s) => !s)}
             >
-              <ImgIcon path="icons/cog.svg" />
+              <CogIcon />
             </button>
 
             {settingsOpen && (
@@ -81,7 +81,7 @@ export const NavBar = () => {
                 aria-label={item.label}
               >
                 {item.icon}
-                {item.badge && <span className={styles.badge} aria-hidden="true" />}
+                {<span className={styles.badge} aria-hidden="true" />}
               </NavLink>
             ))}
           </nav>
@@ -93,7 +93,7 @@ export const NavBar = () => {
             aria-label="Search (Ctrl+K)"
             title="Search (Ctrl+K)"
           >
-            <ImgIcon path="icons/search.svg" label="Search" />
+            <SearchIcon />
           </button>
         </div>
 

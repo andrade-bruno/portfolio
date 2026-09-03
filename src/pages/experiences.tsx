@@ -90,7 +90,7 @@ export const Experiences = () => {
     <section className={pageStyles.page}>
       <div className={pageStyles.hero}>
         <p className={pageStyles.eyebrow}>Professional Experiences</p>
-        <h1 className={pageStyles.title}>What I've Done</h1>
+        <h1 className={pageStyles.title}>Employment History</h1>
 
         <div className={styles.timeline}>
           {experienceEntries.map((entry) => (

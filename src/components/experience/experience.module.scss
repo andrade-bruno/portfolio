@@ -11,10 +11,9 @@
 	flex-direction: column;
 	gap: 14px;
 	padding: 18px;
-	background: rgba(colors.$primary, 0.42);
-	border: 1px solid rgba(colors.$secondary, 0.08);
-	border-radius: 18px;
-	box-shadow: 0 10px 20px rgba(colors.$secondary, 0.03);
+	background: colors.$gray-300;
+	border-radius: 12px;
+	box-shadow: 0 2px 4px colors.$secondary;
 }
 
 .entryRow {

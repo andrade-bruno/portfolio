@@ -1,32 +1,31 @@
+import { BuildingIcon, CalendarIcon, JobActivitiesIcon, RoleIcon } from "components/icons";
 import { Experience } from "interfaces";
 import { useState } from "react";
 import styles from "./experience.module.scss";
 
 export const ExperienceCard = ({ entry }: { entry: Experience }) => {
-	const getIconPath = (path: string) => `${process.env.PUBLIC_URL}${path}`;
-
   const [expanded, setExpanded] = useState(false);
 
-	return (
-		<article className={styles.entry} key={entry.company}>
+  return (
+    <article className={styles.entry} key={entry.company}>
       <div className={styles.entryCard}>
         <div className={styles.entryRow}>
           <span className={styles.entryIcon}>
-            <img src={getIconPath('/experiences/role.svg')} alt="" aria-hidden="true" />
+            <RoleIcon />
           </span>
           <span className={styles.role}>{entry.role}</span>
         </div>
 
         <div className={styles.entryRow}>
           <span className={styles.entryIcon}>
-            <img src={getIconPath('/experiences/calendar.svg')} alt="" aria-hidden="true" />
+            <CalendarIcon />
           </span>
           <span className={styles.period}>{entry.period}</span>
         </div>
 
         <div className={styles.entryRow}>
           <span className={styles.entryIcon}>
-            <img src={getIconPath('/experiences/building.svg')} alt="" aria-hidden="true" />
+            <BuildingIcon />
           </span>
           <span className={styles.companyName}>{entry.company}</span>
         </div>
@@ -39,7 +38,7 @@ export const ExperienceCard = ({ entry }: { entry: Experience }) => {
             className={`${styles.entryIcon} ${expanded ? styles.entryIconVisible : styles.entryIconHidden}`}
             aria-hidden={!expanded}
           >
-            <img src={getIconPath('/experiences/job-activities.svg')} alt="" />
+            <JobActivitiesIcon />
           </span>
 
           <div
@@ -73,5 +72,5 @@ export const ExperienceCard = ({ entry }: { entry: Experience }) => {
         </button>
       </div>
     </article>
-	)
-}
+  );
+};

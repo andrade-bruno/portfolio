@@ -1,0 +1,27 @@
+@use "styles/colors" as colors;
+
+:root {
+  /* fallback tokens if variables not present */
+}
+
+.icon {
+  color: colors.$secondary;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.icon--accent {
+  color: colors.$tertiary;
+}
+
+.icon--muted {
+  color: colors.$gray-300;
+}
+
+/* allow sizing via font-size */
+.icon--lg {
+  font-size: 1.25em;
+}
+.icon--sm {
+  font-size: 0.9em;
+}

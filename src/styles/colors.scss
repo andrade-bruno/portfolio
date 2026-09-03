@@ -1,7 +1,7 @@
 // CSS variable-backed tokens: SASS variables now resolve to runtime CSS custom properties
-$primary: var(--color-primary, #000000);
-$secondary: var(--color-secondary, #ffffff);
-$tertiary: var(--color-tertiary, #ff6c01);
+$primary: var(--color-primary);
+$secondary: var(--color-secondary);
+$tertiary: var(--color-tertiary);
 
-$gray-100: var(--color-gray-100, #f6f6f6);
-$gray-300: var(--color-gray-300, #ebebeb);
+$gray-100: var(--color-gray-100);
+$gray-300: var(--color-gray-300);

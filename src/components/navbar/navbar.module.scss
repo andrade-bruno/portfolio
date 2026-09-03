@@ -234,6 +234,11 @@
 	border-radius: 50%;
 	background: colors.$tertiary;
 	border: 2px solid colors.$primary;
+	display: none; /* show only when the item is active */
+}
+
+.navItem.active .badge {
+	display: block;
 }
 // ─── Search button ────────────────────────────────────────────────────────────
 

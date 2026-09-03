@@ -2,25 +2,6 @@ import { Link } from "react-router";
 import styles from "./home.module.scss";
 import pageStyles from "./index.module.scss";
 
-const structure = [
-  {
-    title: "Home",
-    text: "Hero, direction, and the quickest path into the portfolio.",
-  },
-  {
-    title: "Experiences",
-    text: "Timeline, roles, and the stack behind each stage of work.",
-  },
-  {
-    title: "Projects",
-    text: "Selected case studies, product thinking, and visual experiments.",
-  },
-  {
-    title: "Personal",
-    text: "Short bio, working style, and the best way to get in touch.",
-  },
-];
-
 export const Home = () => {
   return (
     <section className={pageStyles.page}>
