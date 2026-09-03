@@ -1,23 +1,28 @@
 import { CogIcon, ExperiencesIcon, HomeIcon, PersonalIcon, ProjectsIcon, SearchIcon } from "components/icons";
 import { SearchModal } from "components/search-modal";
+import { getStoredLanguage, setStoredLanguage, translations, type Language } from "i18n";
 import { useEffect, useRef, useState } from "react";
 import { NavLink } from "react-router";
 import styles from "./navbar.module.scss";
 import { SettingsDropdown } from "./SettingsDropdown";
 
-const navItems = [
-  { to: "/", label: "Home", icon: <HomeIcon />, end: true },
-  { to: "/experiences", label: "Experiences", icon: <ExperiencesIcon />, end: false },
-  { to: "/projects", label: "Projects", icon: <ProjectsIcon />, end: false },
-  { to: "/personal", label: "Personal", icon: <PersonalIcon />, end: false },
-];
-
 export const NavBar = () => {
   const [searchOpen, setSearchOpen] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
+  const [language, setLanguage] = useState<Language>(getStoredLanguage());
   const wrapperRef = useRef<HTMLDivElement | null>(null);
 
-  // Global Ctrl+K / Cmd+K shortcut
+  const navItems = [
+    { to: "/", label: translations[language].nav.home, icon: <HomeIcon />, end: true },
+    { to: "/experiences", label: translations[language].nav.experiences, icon: <ExperiencesIcon />, end: false },
+    { to: "/projects", label: translations[language].nav.projects, icon: <ProjectsIcon />, end: false },
+    { to: "/personal", label: translations[language].nav.personal, icon: <PersonalIcon />, end: false },
+  ];
+
+  useEffect(() => {
+    setStoredLanguage(language);
+  }, [language]);
+
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
       if ((e.ctrlKey || e.metaKey) && e.key === "k") {
@@ -43,18 +48,16 @@ export const NavBar = () => {
   return (
     <>
       <aside className={styles.container} ref={wrapperRef}>
-        {/* Orange right stripe with notch */}
         <div className={styles.stripe} aria-hidden="true">
           <div className={styles.notch} />
         </div>
 
-        {/* Top section: logo + nav + search */}
         <div className={styles.topSection}>
           <div className={styles.logoWrapper}>
             <button
               className={styles.logo}
-              aria-label="Settings"
-              title="Settings"
+              aria-label={translations[language].settings.aria}
+              title={translations[language].settings.aria}
               type="button"
               onClick={() => setSettingsOpen((s) => !s)}
             >
@@ -63,7 +66,11 @@ export const NavBar = () => {
 
             {settingsOpen && (
               <div className={styles.settingsContainer}>
-                <SettingsDropdown onClose={() => setSettingsOpen(false)} />
+                <SettingsDropdown
+                  language={language}
+                  onLocaleChange={setLanguage}
+                  onClose={() => setSettingsOpen(false)}
+                />
               </div>
             )}
           </div>
@@ -81,7 +88,7 @@ export const NavBar = () => {
                 aria-label={item.label}
               >
                 {item.icon}
-                {<span className={styles.badge} aria-hidden="true" />}
+                <span className={styles.badge} aria-hidden="true" />
               </NavLink>
             ))}
           </nav>
@@ -90,15 +97,18 @@ export const NavBar = () => {
             className={styles.searchBtn}
             type="button"
             onClick={() => setSearchOpen(true)}
-            aria-label="Search (Ctrl+K)"
-            title="Search (Ctrl+K)"
+            aria-label={translations[language].nav.search}
+            title={translations[language].nav.search}
           >
             <SearchIcon />
           </button>
         </div>
 
-        {/* Bottom: avatar */}
-        <div className={styles.avatar} aria-label="Profile" title="Profile">
+        <div
+          className={styles.avatar}
+          aria-label={translations[language].nav.profile}
+          title={translations[language].nav.profile}
+        >
           <span>BA</span>
         </div>
       </aside>

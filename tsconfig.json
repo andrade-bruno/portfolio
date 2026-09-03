@@ -18,6 +18,7 @@
     "baseUrl": "src",
     "paths": {
       "components": ["./components"],
+      "i18n": ["./i18n"],
       "interfaces": ["./interfaces"],
       "pages": ["./pages"],
       "routes": ["./routes"],
