@@ -1,26 +1,22 @@
+import { useTranslations } from "contexts/i18n";
 import { Link } from "react-router";
-import styles from "./home.module.scss";
 import pageStyles from "./index.module.scss";
 
 export const Home = () => {
+  const { currentTranslation } = useTranslations();
+
   return (
     <section className={pageStyles.page}>
       <div className={pageStyles.hero}>
-        <p className={pageStyles.eyebrow}>Home</p>
+        <p className={pageStyles.eyebrow}>{currentTranslation.nav.home}</p>
         <h1 className={pageStyles.title}>Bruno Andrade</h1>
-        <p className={pageStyles.lead}>
-          Backend Engineer with professional experience since 2019 and a BSc in Computer Science (UNIP, 2022). Specializes in designing and delivering secure, highly available, and scalable backend systems and microservices using Node.js and Go.
-
-          With strong experience in event-driven architectures, observability, and cloud-native patterns on AWS, proven track record owning end-to-end backend features, improving performance and reliability, leading cross-functional deliveries, and mentoring engineers to raise code quality and operational practices.
-
-          I stand out for being organized, committed to my goals, and for taking leadership in the deliverables I oversee.
-        </p>
+        <p className={pageStyles.lead}>{currentTranslation.home.description}</p>
         <div className={pageStyles.actions}>
           <Link to="/experiences" className={pageStyles.secondaryAction}>
-            Check experiences
+            {currentTranslation.home.experiencesBtn}
           </Link>
           <Link to="/projects" className={pageStyles.primaryAction}>
-            View projects
+            {currentTranslation.home.projectsBtn}
           </Link>
         </div>
       </div>

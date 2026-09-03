@@ -1,8 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { AllRoutes } from "./routes";
+import { TranslationsProvider } from "./contexts";
 import "./globals.scss";
 import "./reset.scss";
+import { AllRoutes } from "./routes";
 
 const THEME_KEY = "site:dark";
 const savedTheme = window.localStorage.getItem(THEME_KEY);
@@ -17,6 +18,8 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <AllRoutes />
+    <TranslationsProvider>
+       <AllRoutes />
+    </TranslationsProvider>
   </React.StrictMode>
 );

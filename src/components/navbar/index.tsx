@@ -1,6 +1,6 @@
 import { CogIcon, ExperiencesIcon, HomeIcon, PersonalIcon, ProjectsIcon, SearchIcon } from "components/icons";
 import { SearchModal } from "components/search-modal";
-import { getStoredLanguage, setStoredLanguage, translations, type Language } from "i18n";
+import { useTranslations } from "contexts/i18n";
 import { useEffect, useRef, useState } from "react";
 import { NavLink } from "react-router";
 import styles from "./navbar.module.scss";
@@ -9,19 +9,16 @@ import { SettingsDropdown } from "./SettingsDropdown";
 export const NavBar = () => {
   const [searchOpen, setSearchOpen] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
-  const [language, setLanguage] = useState<Language>(getStoredLanguage());
+  const { currentTranslation, currentLanguage, setLanguage } = useTranslations();
+
   const wrapperRef = useRef<HTMLDivElement | null>(null);
 
   const navItems = [
-    { to: "/", label: translations[language].nav.home, icon: <HomeIcon />, end: true },
-    { to: "/experiences", label: translations[language].nav.experiences, icon: <ExperiencesIcon />, end: false },
-    { to: "/projects", label: translations[language].nav.projects, icon: <ProjectsIcon />, end: false },
-    { to: "/personal", label: translations[language].nav.personal, icon: <PersonalIcon />, end: false },
+    { to: "/", label: currentTranslation.nav.home, icon: <HomeIcon />, end: true },
+    { to: "/experiences", label: currentTranslation.nav.experiences, icon: <ExperiencesIcon />, end: false },
+    { to: "/projects", label: currentTranslation.nav.projects, icon: <ProjectsIcon />, end: false },
+    { to: "/personal", label: currentTranslation.nav.personal, icon: <PersonalIcon />, end: false },
   ];
-
-  useEffect(() => {
-    setStoredLanguage(language);
-  }, [language]);
 
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
@@ -56,8 +53,8 @@ export const NavBar = () => {
           <div className={styles.logoWrapper}>
             <button
               className={styles.logo}
-              aria-label={translations[language].settings.aria}
-              title={translations[language].settings.aria}
+              aria-label={currentTranslation.settings.aria}
+              title={currentTranslation.settings.aria}
               type="button"
               onClick={() => setSettingsOpen((s) => !s)}
             >
@@ -67,7 +64,7 @@ export const NavBar = () => {
             {settingsOpen && (
               <div className={styles.settingsContainer}>
                 <SettingsDropdown
-                  language={language}
+                  language={currentLanguage}
                   onLocaleChange={setLanguage}
                   onClose={() => setSettingsOpen(false)}
                 />
@@ -97,8 +94,8 @@ export const NavBar = () => {
             className={styles.searchBtn}
             type="button"
             onClick={() => setSearchOpen(true)}
-            aria-label={translations[language].nav.search}
-            title={translations[language].nav.search}
+            aria-label={currentTranslation.common.search}
+            title={currentTranslation.common.search}
           >
             <SearchIcon />
           </button>
@@ -106,8 +103,8 @@ export const NavBar = () => {
 
         <div
           className={styles.avatar}
-          aria-label={translations[language].nav.profile}
-          title={translations[language].nav.profile}
+          aria-label={currentTranslation.nav.profile}
+          title={currentTranslation.nav.profile}
         >
           <span>BA</span>
         </div>
