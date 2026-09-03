@@ -16,26 +16,36 @@
 }
 
 @keyframes fadeIn {
-	from { opacity: 0; }
-	to   { opacity: 1; }
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
 }
 
 // ─── Modal card ───────────────────────────────────────────────────────────────
 
 .modal {
 	width: min(640px, calc(100vw - 32px));
-	background: #fff;
+	background: colors.$primary;
 	border-radius: 18px;
 	box-shadow:
-		0 4px 6px rgba(0,0,0,0.06),
-		0 24px 60px rgba(0,0,0,0.22);
+		0 4px 6px rgba(colors.$secondary, 0.06),
+		0 24px 60px rgba(colors.$secondary, 0.22);
 	overflow: hidden;
 	animation: slideIn 0.14s ease;
 }
 
 @keyframes slideIn {
-	from { transform: translateY(-8px); opacity: 0; }
-	to   { transform: translateY(0);    opacity: 1; }
+	from {
+		transform: translateY(-8px);
+		opacity: 0;
+	}
+	to {
+		transform: translateY(0);
+		opacity: 1;
+	}
 }
 
 // ─── Input row ────────────────────────────────────────────────────────────────
@@ -85,7 +95,7 @@
 	line-height: 1;
 
 	&:hover {
-		background: #d0d0d0;
+		background: colors.$tertiary;
 	}
 }
 
@@ -200,7 +210,7 @@
 		padding: 2px 5px;
 		border-radius: 5px;
 		border: 1px solid colors.$gray-300;
-		background: #fff;
+		background: colors.$primary;
 		font-family: inherit;
 		font-size: 0.72rem;
 		margin-right: 3px;

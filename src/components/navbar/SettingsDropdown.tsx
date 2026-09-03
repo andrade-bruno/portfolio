@@ -19,18 +19,17 @@ export const SettingsDropdown = ({ onClose }: { onClose?: () => void }) => {
   const LANG_KEY = "site:lang";
 
   useEffect(() => {
-    const storedTheme = localStorage.getItem(THEME_KEY) || null;
-    const storedLang = localStorage.getItem(LANG_KEY) || null;
+    const storedTheme = localStorage.getItem(THEME_KEY);
+    const storedLang = localStorage.getItem(LANG_KEY);
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const initialDark = storedTheme !== null ? storedTheme === "true" : prefersDark;
 
-    if (storedTheme !== null) {
-      const isDark = storedTheme === "true";
-      setDark(isDark);
-      document.body.classList.toggle("dark", isDark);
-    }
-    if (storedLang !== null) {
-      setLang(storedLang);
-      document.documentElement.setAttribute("lang", storedLang);
-    }
+    setDark(initialDark);
+    document.body.classList.toggle("dark", initialDark);
+
+    const nextLang = storedLang ?? EN_KEY;
+    setLang(nextLang);
+    document.documentElement.setAttribute("lang", nextLang);
   }, []);
 
   const toggleDark = () => {

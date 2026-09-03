@@ -21,24 +21,27 @@ body,
 	font: fonts.$text;
 }
 
+:root {
+	/* default (light) theme variables */
+	--color-primary: #ffffff; /* surfaces */
+	--color-secondary: #000000; /* text */
+	--color-tertiary: #ff6c01; /* accent */
+	--color-gray-100: #f6f6f6;
+	--color-gray-300: #ebebeb;
+}
+
 body {
 	margin: 0;
-	background: colors.$gray-100;
-	color: colors.$secondary;
+	background: var(--color-gray-100);
+	color: var(--color-secondary);
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
 
-/* Dark theme: toggle by adding .dark to <body> */
-body.dark .container,
-body.dark .entryCard,
-body.dark .summary,
-body.dark .settingsContainer,
-body.dark .settingsDropdown,
-body.dark .entry,
 body.dark {
-	background: colors.$dark;
-	color: colors.$light;
-	font-style: colors.$light;
-	text-decoration-color: colors.$tertiary;
+	--color-primary: #000000;
+	--color-secondary: #ffffff;
+	--color-gray-100: #111111;
+	--color-gray-300: #222222;
+	--color-tertiary: #ff9a46;
 }
