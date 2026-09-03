@@ -1,8 +1,9 @@
 $padding: 24px;
 $gap: 16px;
 
-$navbar-height: 80px;
-$sidebar-width: 80px;
+$navigation-height: 80px;
+$navbar-height: $navigation-height;
+$sidebar-width: $navigation-height;
 
 $images: 20px;
 
