@@ -5,7 +5,7 @@ import styles from "./experience.module.scss";
 export const ExperienceCard = ({ entry }: { entry: Experience }) => {
 	const getIconPath = (path: string) => `${process.env.PUBLIC_URL}${path}`;
 
-  const [expanded, setExpanded] = useState(true);
+  const [expanded, setExpanded] = useState(false);
 
 	return (
 		<article className={styles.entry} key={entry.company}>

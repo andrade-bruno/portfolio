@@ -49,6 +49,10 @@
 	gap: 8px;
 }
 
+.logoWrapper {
+	position: relative;
+}
+
 .logo {
 	display: flex;
 	align-items: center;
@@ -58,6 +62,8 @@
 	color: colors.$secondary;
 	border-radius: 12px;
 	transition: color 0.15s ease;
+	background: transparent;
+	cursor: pointer;
 
 	svg,
 	img {
@@ -68,6 +74,102 @@
 	&:hover {
 		color: colors.$tertiary;
 	}
+}
+
+// ─── Settings ────────────────────────────────────────────────────────────────
+
+.settingsContainer {
+	position: absolute;
+	left: calc(100% + 26px);
+	top: 0;
+	z-index: 60;
+}
+
+.settingsDropdown {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	background: colors.$primary;
+	border-radius: 12px;
+	padding: 10px;
+	box-shadow: 0 14px 30px rgba(colors.$secondary, 0.08);
+	min-width: 220px;
+}
+
+.flagRow {
+	display: flex;
+	gap: 8px;
+	align-items: center;
+}
+
+.flagBtn {
+	background: transparent;
+	border: 1px solid rgba(0,0,0,0.06);
+	padding: 4px;
+	border-radius: 8px;
+	cursor: pointer;
+}
+
+.flagBtn:hover {
+	border-color: rgba(colors.$secondary, 0.12);
+}
+
+.flagImg {
+	width: 36px;
+	height: 20px;
+	display: block;
+}
+
+.activeFlag {
+	box-shadow: 0 6px 18px rgba(colors.$tertiary, 0.14);
+	border-color: colors.$tertiary;
+}
+
+.langBtn {
+	background: transparent;
+	border: 0;
+	cursor: pointer;
+	font-weight: 700;
+}
+
+.settingsRow {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	padding: 8px 10px;
+	border-radius: 8px;
+	background: transparent;
+	border: 0;
+	cursor: pointer;
+	font-weight: 700;
+	color: colors.$secondary;
+	transition: index.$transition;
+}
+
+.settingsRow:hover {
+	background: colors.$gray-100;
+}
+
+.toggleKnob {
+	font-size: 1.05rem;
+	color: colors.$tertiary;
+}
+
+.langLabel {
+	font-size: 0.95rem;
+	color: rgba(colors.$secondary, 0.9);
+}
+
+.settingsClose {
+	margin-top: 8px;
+	background: transparent;
+	border: 0;
+	color: rgba(colors.$secondary, 0.7);
+	font-weight: 600;
+	padding: 6px 8px;
+	border-radius: 8px;
+	cursor: pointer;
 }
 
 // ─── Nav items ────────────────────────────────────────────────────────────────

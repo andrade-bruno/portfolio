@@ -28,3 +28,17 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
+
+/* Dark theme: toggle by adding .dark to <body> */
+body.dark .container,
+body.dark .entryCard,
+body.dark .summary,
+body.dark .settingsContainer,
+body.dark .settingsDropdown,
+body.dark .entry,
+body.dark {
+	background: colors.$dark;
+	color: colors.$light;
+	font-style: colors.$light;
+	text-decoration-color: colors.$tertiary;
+}

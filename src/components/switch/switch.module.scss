@@ -1,0 +1,78 @@
+@use "styles/index" as index;
+@use "styles/colors" as colors;
+
+.switch {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+.track {
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+  border-radius: 999px;
+  background: rgba(colors.$secondary, 0.12);
+  position: relative;
+  transition:
+    background 220ms ease,
+    box-shadow 220ms ease;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.knob {
+  display: block;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: colors.$primary;
+  position: absolute;
+  left: 3px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition:
+    transform 220ms ease,
+    background 220ms ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+.checked .track {
+  background: colors.$tertiary;
+}
+
+.checked .knob {
+  transform: translateY(-50%) translateX(20px);
+  background: colors.$light;
+}
+
+/* Sizes */
+.sm .track {
+  width: 36px;
+  height: 20px;
+}
+.sm .knob {
+  width: 14px;
+  height: 14px;
+  left: 3px;
+}
+.md .track {
+  width: 44px;
+  height: 24px;
+}
+.md .knob {
+  width: 18px;
+  height: 18px;
+  left: 3px;
+}
+.lg .track {
+  width: 56px;
+  height: 30px;
+}
+.lg .knob {
+  width: 24px;
+  height: 24px;
+  left: 3px;
+}

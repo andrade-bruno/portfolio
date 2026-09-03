@@ -1,8 +1,9 @@
 import { SearchModal } from "components/search-modal";
-import { useEffect, useState } from "react";
-import { Link, NavLink } from "react-router";
+import { useEffect, useRef, useState } from "react";
+import { NavLink } from "react-router";
 import { ImgIcon } from "utils";
 import styles from "./navbar.module.scss";
+import { SettingsDropdown } from "./SettingsDropdown";
 
 const navItems = [
   { to: "/", label: "Home", icon: <ImgIcon path="icons/home.svg" label="Home" />, end: true, badge: false },
@@ -13,6 +14,8 @@ const navItems = [
 
 export const NavBar = () => {
   const [searchOpen, setSearchOpen] = useState(false);
+  const [settingsOpen, setSettingsOpen] = useState(false);
+  const wrapperRef = useRef<HTMLDivElement | null>(null);
 
   // Global Ctrl+K / Cmd+K shortcut
   useEffect(() => {
@@ -26,9 +29,20 @@ export const NavBar = () => {
     return () => window.removeEventListener("keydown", handler);
   }, []);
 
+  useEffect(() => {
+    const onDoc = (e: MouseEvent) => {
+      if (!wrapperRef.current) return;
+      if (settingsOpen && e.target && !wrapperRef.current.contains(e.target as Node)) {
+        setSettingsOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", onDoc);
+    return () => document.removeEventListener("mousedown", onDoc);
+  }, [settingsOpen]);
+
   return (
     <>
-      <aside className={styles.container}>
+      <aside className={styles.container} ref={wrapperRef}>
         {/* Orange right stripe with notch */}
         <div className={styles.stripe} aria-hidden="true">
           <div className={styles.notch} />
@@ -36,8 +50,22 @@ export const NavBar = () => {
 
         {/* Top section: logo + nav + search */}
         <div className={styles.topSection}>
-          <div className={styles.logo} aria-label="Logo" title="Logo">
-            <ImgIcon path="favicon.svg"/>
+          <div className={styles.logoWrapper}>
+            <button
+              className={styles.logo}
+              aria-label="Settings"
+              title="Settings"
+              type="button"
+              onClick={() => setSettingsOpen((s) => !s)}
+            >
+              <ImgIcon path="favicon.svg" />
+            </button>
+
+            {settingsOpen && (
+              <div className={styles.settingsContainer}>
+                <SettingsDropdown onClose={() => setSettingsOpen(false)} />
+              </div>
+            )}
           </div>
 
           <nav className={styles.nav} aria-label="Main Navigation">
