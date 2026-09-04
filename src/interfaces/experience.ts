@@ -1,6 +1,6 @@
 export interface Experience {
-	company: string;
-	period: string;
 	role: string;
+	period: string;
+	company: string;
 	summary: string[] | string;
 }

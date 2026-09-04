@@ -1,3 +1,4 @@
+import { Experience } from "interfaces";
 import { ReactNode } from "react";
 
 export interface ITranslationsProviderProps {
@@ -50,5 +51,12 @@ export interface ITranslation {
 		description: string;
 		projectsBtn: string;
 		experiencesBtn: string;
+	},
+	experiences: {
+		title: string;
+		viewMore: string;
+		viewLess: string;
+		jobs: Experience[]
+		techGraph: string;
 	}
 }

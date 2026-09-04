@@ -1,10 +1,12 @@
 import { BuildingIcon, CalendarIcon, JobActivitiesIcon, RoleIcon } from "components/icons";
+import { useTranslations } from "contexts";
 import { Experience } from "interfaces";
 import { useState } from "react";
 import styles from "./experience.module.scss";
 
 export const ExperienceCard = ({ entry }: { entry: Experience }) => {
-  const [expanded, setExpanded] = useState(false);
+  const [expanded, setExpanded] = useState(true);
+  const { currentTranslation } = useTranslations()
 
   return (
     <article className={styles.entry} key={entry.company}>
@@ -68,7 +70,8 @@ export const ExperienceCard = ({ entry }: { entry: Experience }) => {
           onClick={() => setExpanded((current) => !current)}
           aria-expanded={expanded}
         >
-          {expanded ? "View less" : "View more"} <span aria-hidden="true">{expanded ? "↑" : "↓"}</span>
+          {expanded ? currentTranslation.experiences.viewLess : currentTranslation.experiences.viewMore}
+          <span aria-hidden="true">{expanded ? "↑" : "↓"}</span>
         </button>
       </div>
     </article>
