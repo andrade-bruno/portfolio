@@ -1,9 +1,9 @@
-import { BrowserRouter, Route, Routes } from "react-router";
 import { Experiences } from "pages/experiences";
-import { Projects } from "pages/projects";
 import { Home } from "pages/home";
-import { Personal } from "pages/personal";
 import { DefaultLayout } from "pages/layout";
+import { Personal } from "pages/personal";
+import { Projects } from "pages/projects";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router";
 
 export const AllRoutes = () => {
   return (
@@ -12,8 +12,9 @@ export const AllRoutes = () => {
         <Route element={<DefaultLayout />}>
           <Route index element={<Home />} />
           <Route path="/experiences" element={<Experiences />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/personal" element={<Personal />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+          {/* <Route path="/projects" element={<Projects />} /> */}
+          {/* <Route path="/personal" element={<Personal />} /> */}
         </Route>
       </Routes>
     </BrowserRouter>

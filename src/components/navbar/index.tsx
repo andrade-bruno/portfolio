@@ -16,8 +16,8 @@ export const NavBar = () => {
   const navItems = [
     { to: "/", label: currentTranslation.nav.home, icon: <HomeIcon />, end: true },
     { to: "/experiences", label: currentTranslation.nav.experiences, icon: <ExperiencesIcon />, end: false },
-    { to: "/projects", label: currentTranslation.nav.projects, icon: <ProjectsIcon />, end: false },
-    { to: "/personal", label: currentTranslation.nav.personal, icon: <PersonalIcon />, end: false },
+    // { to: "/projects", label: currentTranslation.nav.projects, icon: <ProjectsIcon />, end: false },
+    // { to: "/personal", label: currentTranslation.nav.personal, icon: <PersonalIcon />, end: false },
   ];
 
   useEffect(() => {
