@@ -1,7 +1,7 @@
 import Switch from "components/switch";
+import { useTheme } from "contexts/theme";
 import { useTranslations } from "contexts/i18n";
 import { Language } from "contexts/i18n.interface";
-import { useEffect, useState } from "react";
 import { ImgIcon } from "utils";
 import styles from "./navbar.module.scss";
 
@@ -15,30 +15,13 @@ export const SettingsDropdown = ({
   onClose?: () => void;
 }) => {
   const { translations, currentTranslation } = useTranslations();
-  const [dark, setDark] = useState<boolean>(false);
-  const THEME_KEY = "site:dark";
-
-  useEffect(() => {
-    const storedTheme = localStorage.getItem(THEME_KEY);
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    const initialDark = storedTheme !== null ? storedTheme === "true" : prefersDark;
-
-    setDark(initialDark);
-    document.body.classList.toggle("dark", initialDark);
-  }, []);
-
-  const toggleDark = () => {
-    const next = !dark;
-    setDark(next);
-    localStorage.setItem(THEME_KEY, String(next));
-    document.body.classList.toggle("dark", next);
-  };
+  const { isDark, toggleTheme } = useTheme();
 
   return (
     <div className={styles.settingsDropdown} role="menu" aria-label={currentTranslation.settings.aria}>
       <div className={styles.settingsRow}>
         <span>{currentTranslation.settings.darkTheme}</span>
-        <Switch checked={dark} onChange={() => toggleDark()} ariaLabel={currentTranslation.settings.toggleTheme} />
+        <Switch checked={isDark} onChange={() => toggleTheme()} ariaLabel={currentTranslation.settings.toggleTheme} />
       </div>
 
       <div className={styles.settingsRow}>
