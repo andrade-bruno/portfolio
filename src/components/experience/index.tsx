@@ -84,7 +84,9 @@ export const ExperienceCard = ({ entry }: { entry: Experience }) => {
         {entry.images.length === 0 ?
           <ExperiencePlaceholderIcon className={styles.visualSvg} />
         : entry.images.map(props => (
-          <ImgIcon path={props.path} label="" className={styles.visualImage} />
+          <>
+            <ImgIcon path={props.path} label="" className={styles.visualImage} />
+          </>
         ))}
       </div>
     </article>

@@ -20,29 +20,29 @@ export const Experiences = () => {
 
         <div className={styles.timeline}>
           {currentTranslation.experiences.jobs.map((entry) => (
-            <ExperienceCard key={entry.company} entry={entry} />
+            <ExperienceCard key={`${entry.company}-${currentTranslation.key}-${Math.random()}`} entry={entry}/>
           ))}
         </div>
-      </div>
 
-      <div className={styles.topBar}>
-        <div className={styles.graphHeader}>
-          <span className={styles.graphLabel}>{currentTranslation.experiences.techGraph}</span>
-        </div>
+        <div className={styles.topBar}>
+          <div className={styles.graphHeader}>
+            <span className={styles.graphLabel}>{currentTranslation.experiences.techGraph}</span>
+          </div>
 
-        <div className={styles.graphGrid}>
-          {techStats.map((item) => (
-            <div className={styles.skillRow} key={item.label}>
-              <div className={styles.skillTitle}>{item.label}</div>
-              <div className={styles.skillTrack}>
-                <span className={styles.skillBar} style={{ width: `${item.level}%` }} />
+          <div className={styles.graphGrid}>
+            {techStats.map((item) => (
+              <div className={styles.skillRow} key={item.label}>
+                <div className={styles.skillTitle}>{item.label}</div>
+                <div className={styles.skillTrack}>
+                  <span className={styles.skillBar} style={{ width: `${item.level}%` }} />
+                </div>
+                <div className={styles.skillMeta}>
+                  <span>{item.experience}</span>
+                  <span>{item.level}%</span>
+                </div>
               </div>
-              <div className={styles.skillMeta}>
-                <span>{item.experience}</span>
-                <span>{item.level}%</span>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -9,33 +9,32 @@
 	background: colors.$gray-300;
 	border-radius: 12px;
 	box-shadow: 0 2px 4px colors.$secondary;
-	min-height: 100px;
 }
 
 .entryContent {
 	display: flex;
 	flex-direction: column;
 	gap: 14px;
+	min-width: 0;
 }
 
 .entryImages {
-	display: column;
-	align-self: center;
+	display: flex;
+	flex-direction: row;
 	align-items: center;
 	justify-content: center;
+	gap: 14px;
+	border-radius: 16px;
 }
 
 .visualSvg,
 .visualImage {
-	overflow: hidden;
+	min-width: 2rem;
+	min-height: 2rem;
+	max-width: 80%;
+	max-height: 80%;
 	object-fit: contain;
-	// border: 1px solid colors.$tertiary;
-	border-style: groove;
 	border-radius: 16px;
-	width: 100%;
-	min-height: 1fr;
-	max-height: 100%;
-	background: transparent;
 }
 
 .visualSvg {
@@ -200,26 +199,57 @@
 }
 
 @media (max-width: 900px) {
-	.entry::after {
-		right: 7px;
-	}
-
 	.entryCard {
 		grid-template-columns: 1fr;
 	}
 
-	.entryVisual {
-		min-height: 160px;
+	.entryContent {
+		gap: 7px;
 	}
-}
 
-@media (max-width: 640px) {
-	.entryRowVisible {
-		grid-template-columns: 28px 1fr;
-		gap: 10px;
+	.entryRow {
+		gap: 8px;
 	}
 
 	.summary {
 		font-size: 0.96rem;
+	}
+
+	.entryImages {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 7px;
+	}
+
+	.visualImage,
+	.visualSvg {
+		min-height: 1rem;
+		min-width: 1rem;
+		width: 18rem;
+		height: 18rem;
+		max-width: 60%;
+		max-height: 60%;
+	}
+}
+
+@media (max-width: 640px) {
+	.entryImages {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 7px;
+	}
+
+	.visualImage,
+	.visualSvg {
+		min-height: 1rem;
+		min-width: 1rem;
+		width: 14rem;
+		height: 14rem;
+		max-width: 60%;
+		max-height: 60%;
 	}
 }
