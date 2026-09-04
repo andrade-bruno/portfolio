@@ -27,10 +27,8 @@
 	background: colors.$tertiary;
 }
 
-// Right-pointing triangle notch, centered on the stripe
 .notch {
 	position: absolute;
-	// right edge of notch = 10px past the stripe's right edge
 	right: -10px;
 	top: 50%;
 	transform: translateY(-50%);
@@ -227,7 +225,6 @@
 	background: rgba(colors.$tertiary, 0.08);
 }
 
-// Orange notification dot (e.g. Experiences)
 .badge {
 	position: absolute;
 	top: 7px;
@@ -237,7 +234,7 @@
 	border-radius: 50%;
 	background: colors.$tertiary;
 	border: 2px solid colors.$primary;
-	display: none; /* show only when the item is active */
+	display: none;
 }
 
 .navItem.active .badge {

@@ -2,6 +2,18 @@
 
 Portfolio site for Bruno Andrade.
 
+## Patterns
+
+- Comments on code aren't allowed.
+
+## Visual asset rules
+
+- Prefer inline SVG components kept under `src/components/icons`.
+- Reuse the shared `SvgIcon` wrapper so icons inherit theme color via `currentColor`.
+- Experience cards should accept an optional `image` field; when absent, render a generated placeholder created as an SVG component instead of a broken or blank panel.
+- Keep generated placeholder artwork in the icon layer rather than in `public/` so the theme system can style it consistently.
+
+
 ## Direction
 
 - Dark-leaning, clean layout with orange accents
@@ -48,41 +60,9 @@ https://www.figma.com/design/1xNoyvA8ZFDBumteMeM7l6/Web?node-id=170-21&t=KMCXuf4
 - Working style
 - Contact details and social links
 
-## Navbar
+### Navbar
 
 - Vertical rail on the left side
 - Absolute positioning on desktop
 - Stacked links with label and short description
 - Keeps the current page active
-
-## Content model
-
-### USERS
-
-### PROJECTS
-
-### JOB_EXPERIENCES
-
-| FIELD | ID | FROM | TO | NAME | ROLE | OVERVIEW_DESCRIPTION |
-| --- | --- | --- | --- | --- | --- | --- |
-| TYPE | UUID | DATETIME | DATETIME | VARCHAR(128) | VARCHAR(128) | VARCHAR(1000) |
-| NULLABLE | FALSE | FALSE | FALSE | FALSE | FALSE | TRUE |
-
-### TECH_EXPERIENCES
-
-| FIELD | ID | NAME | KNOWLEDGE_LEVEL | EXPERIENCE_TIME |
-| --- | --- | --- | --- | --- |
-| TYPE | UUID | VARCHAR(128) | SMALLINT | SMALLINT |
-| NULLABLE | FALSE | FALSE | FALSE | FALSE |
-| DESCRIPTION |  |  | 0 TO 100 PERCENT | IN MONTHS |
-
-## Feature toggles
-
-`use-svg`: Use SVG instead of PNG
-
-## Visual asset rules
-
-- Prefer inline SVG components kept under `src/components/icons`.
-- Reuse the shared `SvgIcon` wrapper so icons inherit theme color via `currentColor`.
-- Experience cards should accept an optional `image` field; when absent, render a generated placeholder created as an SVG component instead of a broken or blank panel.
-- Keep generated placeholder artwork in the icon layer rather than in `public/` so the theme system can style it consistently.

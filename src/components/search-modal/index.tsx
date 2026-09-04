@@ -36,20 +36,18 @@ export const SearchModal = ({ onClose }: Props) => {
 
   const results = search(query);
 
-  // Group results by page, preserving page order
   const grouped = pageOrder.reduce<Record<string, SearchEntry[]>>((acc, page) => {
     const entries = results.filter((e) => e.page === page);
     if (entries.length) acc[page] = entries;
     return acc;
   }, {});
 
-  const flat = results; // flat list for keyboard navigation
+  const flat = results;
 
   useEffect(() => {
     inputRef.current?.focus();
   }, []);
 
-  // Reset active index when query changes
   useEffect(() => {
     setActiveIndex(0);
   }, [query]);
