@@ -1,59 +1,46 @@
 @use "styles/colors" as colors;
 @use "styles/index" as index;
 
-.entry {
-	position: relative;
-	padding-right: 20px;
-}
-
 .entryCard {
 	display: grid;
-	grid-template-columns: minmax(0, 1.7fr) minmax(220px, 0.9fr);
+	grid-template-columns: 1fr 30%;
 	gap: 18px;
 	padding: 18px;
 	background: colors.$gray-300;
 	border-radius: 12px;
 	box-shadow: 0 2px 4px colors.$secondary;
-	min-height: 220px;
+	min-height: 100px;
 }
 
 .entryContent {
 	display: flex;
 	flex-direction: column;
 	gap: 14px;
-	min-width: 0;
 }
 
-.entryVisual {
-	display: flex;
-	align-items: stretch;
+.entryImages {
+	display: column;
+	align-self: center;
+	align-items: center;
 	justify-content: center;
-	min-height: 180px;
-	border-radius: 16px;
-	overflow: hidden;
-	background: linear-gradient(135deg, rgba(colors.$tertiary, 0.12), rgba(colors.$secondary, 0.02));
-	border: 1px solid rgba(colors.$secondary, 0.08);
 }
 
-.visualFrame {
+.visualSvg,
+.visualImage {
+	overflow: hidden;
+	object-fit: contain;
+	// border: 1px solid colors.$tertiary;
+	border-style: groove;
+	border-radius: 16px;
 	width: 100%;
-	height: 100%;
-	min-height: 180px;
+	min-height: 1fr;
+	max-height: 100%;
+	background: transparent;
 }
 
 .visualSvg {
-	display: block;
-	width: 100%;
 	height: 100%;
-	min-height: 180px;
-	color: rgba(colors.$secondary, 0.92);
-}
-
-.visualImage {
-	display: block;
 	width: 100%;
-	height: 100%;
-	object-fit: cover;
 }
 
 .entryRow {
