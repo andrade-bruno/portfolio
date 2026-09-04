@@ -51,6 +51,11 @@ export const translations: ITranslation[] = [
 						"• Integration and creation of functionalities in monolithic and microservices systems using Go and Node.js as primary technologies.",
 						"• Customer: Wellhub - formerly Gympass - a SaaS platform for health and wellness benefits, providing a comprehensive solution for managing employee well-being and engagement.",
 					],
+					images: [
+						{
+							path: "companies/wellhub.jpeg"
+						}
+					],
 				},
 				{
 					role: "Senior Fullstack Software Engineer",
@@ -61,7 +66,12 @@ export const translations: ITranslation[] = [
 						"• Mobile and web CRUD development for Gym call centers",
 						"• Mobile development at Safe Team project, for roster, schedule and teams managements",
 						"• Enviroment maintenance, test and release"
-					]
+					],
+					images: [
+						{
+							path: "companies/fitcomm-safe-team.jpeg"
+						}
+					],
 				},
 				{
 					role: "Mid Backend Software Engineer",
@@ -73,7 +83,12 @@ export const translations: ITranslation[] = [
 						"• CRM national pre registration",
 						"• Federal services",
 						"• ESG compliances and ERP integrations in agronomy e-commerce"
-					]
+					],
+					images: [
+						{
+							path: "companies/mosten.jpeg"
+						}
+					],
 				},
 				{
 					role: "Mid-level VB.NET/Fullstack Developer",
@@ -83,7 +98,12 @@ export const translations: ITranslation[] = [
 						"• Homecare CRM environment maintenance",
 						"• Admin & analysis for patients, customers and bills",
 						"• Creation and maintenance for domiciliar services, medicines, materials, invoices and access profiles"
-					]
+					],
+					images: [
+						{
+							path: "companies/gocare-group.jpeg"
+						}
+					],
 				},
 				{
 					role: "Hardware Maintenance Analyst",
@@ -93,7 +113,8 @@ export const translations: ITranslation[] = [
 						"• Maintenance and installation of third-party software",
 						"• Maintenance of I/O devices",
 						"• Management of SOs and firmware"
-					]
+					],
+					images: [],
 				},
 				{
 					role: "Jr. Software Engineer",
@@ -104,7 +125,8 @@ export const translations: ITranslation[] = [
 						"• Mobile development with React.js and Angular 8.",
 						"• Sales and project management for the healthcare, dentistry and marketing sectors.",
 						"• API development with Node.js and vendor integrations.",
-					]
+					],
+					images: [],
 				},
 				{
 					role: "Customer Service Booking Analyst",
@@ -114,7 +136,12 @@ export const translations: ITranslation[] = [
 						"• Customs clearance.",
 						"• Monitoring the transport of specialized goods, such as hazardous materials (dangerous goods), refrigerated cargo (reefers), and oversized loads, among others.",
 						"• Services for carriers, cargo owners, and customs brokers.",
-					]
+					],
+					images: [
+						{
+							path: "companies/hapag-lloyd.jpeg"
+						}
+					],
 				}
 			],
 			techGraph: "Technologies Graph",
@@ -170,6 +197,11 @@ export const translations: ITranslation[] = [
 						"• Integração e criação de funcionalidades em sistemas monolíticos e microserviços usando Go e Node.js como principais tecnologias.",
 						"• Cliente: Wellhub - anteriormente Gympass - uma plataforma SaaS de benefícios de saúde e bem-estar que oferece uma solução abrangente para a gestão do bem-estar e do engajamento dos colaboradores.",
 					],
+					images: [
+						{
+							path: "companies/wellhub.jpeg"
+						}
+					],
 				},
 				{
 					role: "Engenheiro de Software Fullstack Sênior",
@@ -181,7 +213,12 @@ export const translations: ITranslation[] = [
 						"• Gerenciamento de soluções UCaaS e SaaS para organizações de estilo de vida ativo e esportes para jovens.",
 						"• Desenvolvimento mobile no projeto Safe Team para gerenciamento de escalas, cronogramas e equipes.",
 						"• Manutenção de ambiente, teste e lançamento.",
-					]
+					],
+					images: [
+						{
+							path: "companies/fitcomm-safe-team.jpeg"
+						}
+					],
 				},
 				{
 					role: "Engenheiro de Software Node.js Pleno",
@@ -194,7 +231,12 @@ export const translations: ITranslation[] = [
 						"• Integração com serviços federais.",
 						"• Integração para conformidades ESG.",
 						"• Manuseio de ERP/e-commerce de agronomia."
-					]
+					],
+					images: [
+						{
+							path: "companies/mosten.jpeg"
+						}
+					],
 				},
 				{
 					role: "Desenvolvedor VB.NET/Fullstack Pleno",
@@ -204,7 +246,12 @@ export const translations: ITranslation[] = [
 						"• Criação e manutenção de serviços domiciliares, medicamentos, materiais, faturas e perfis de acesso",
 						"• Administração e análise para pacientes, clientes e contas",
 						"• Manutenção do ambiente CRM de Homecare",
-					]
+					],
+					images: [
+						{
+							path: "companies/gocare-group.jpeg"
+						}
+					],
 				},
 				{
 					role: "Analista de Manutenção de Hardware",
@@ -214,7 +261,8 @@ export const translations: ITranslation[] = [
 						"• Manutenção e instalação de software de terceiros.",
 						"• Manutenção em dispositivos I/O.",
 						"• Gerenciamento de SOs e firmwares.",
-					]
+					],
+					images: [],
 				},
 				{
 					role: "Desenvolvedor Fullstack Jr.",
@@ -225,7 +273,8 @@ export const translations: ITranslation[] = [
 						"• Desenvolvimento mobile com React.js e Angular 8.",
 						"• Vendas e gerenciamento de projetos para o ramo de saúde, odontologia e marketing.",
 						"• Autoria em APIs com Node.js e integrações com vendors."
-					]
+					],
+					images: [],
 				},
 				{
 					role: "Analista Customer Service Booking",
@@ -235,7 +284,12 @@ export const translations: ITranslation[] = [
 						"• Despacho aduaneiro.",
 						"• Monitoraramento de transporte de mercadorias especiais, como cargas perigosas (Dangerous Goods), refrigeradas (reefers), com excesso de dimensão, entre outras.",
 						"• Atendimento para transportadores, proprietários de carga e despachantes."
-					]
+					],
+					images: [
+						{
+							path: "companies/hapag-lloyd.jpeg"
+						}
+					],
 				}
 			],
 			techGraph: "Gráfico de Tecnologias",

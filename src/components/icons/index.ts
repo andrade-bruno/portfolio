@@ -1,6 +1,7 @@
 export * from "./BuildingIcon";
 export * from "./CalendarIcon";
 export * from "./CogIcon";
+export * from "./ExperiencePlaceholderIcon";
 export * from "./ExperiencesIcon";
 export * from "./GithubIcon";
 export * from "./HomeIcon";

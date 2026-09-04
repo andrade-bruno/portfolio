@@ -79,3 +79,10 @@ https://www.figma.com/design/1xNoyvA8ZFDBumteMeM7l6/Web?node-id=170-21&t=KMCXuf4
 ## Feature toggles
 
 `use-svg`: Use SVG instead of PNG
+
+## Visual asset rules
+
+- Prefer inline SVG components kept under `src/components/icons`.
+- Reuse the shared `SvgIcon` wrapper so icons inherit theme color via `currentColor`.
+- Experience cards should accept an optional `image` field; when absent, render a generated placeholder created as an SVG component instead of a broken or blank panel.
+- Keep generated placeholder artwork in the icon layer rather than in `public/` so the theme system can style it consistently.
