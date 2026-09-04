@@ -29,7 +29,7 @@ const contactRows = [
   },
   {
     icon: <PhoneIcon />,
-    text: "+55 (13) 9913-8854",
+    text: "+55 (13) 99136-8854",
   },
   {
     icon: <MailIcon />,
