@@ -11,7 +11,7 @@ export const translations: ITranslation[] = [
 		},
 		nav: {
 			home: "Home",
-			experiences: "My Journey",
+			experiences: "Journey",
 			projects: "Projects",
 			personal: "Personal",
 			search: "Search (Ctrl+K)",

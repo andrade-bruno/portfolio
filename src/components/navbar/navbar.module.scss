@@ -194,8 +194,8 @@
 .nav {
 	display: flex;
 	flex-direction: column;
-	align-items: center;
 	gap: 4px;
+	align-items: center;
 }
 
 .navItem {
@@ -254,7 +254,6 @@
 	color: colors.$secondary;
 	cursor: pointer;
 	transition: index.$transition;
-	margin-top: 4px;
 
 	svg,
 	img {
@@ -309,5 +308,9 @@
 
 	.nav {
 		flex-direction: row;
+	}
+
+	.searchBtn {
+		margin-left: 8px;
 	}
 }
