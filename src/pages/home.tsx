@@ -15,9 +15,9 @@ export const Home = () => {
           <Link to="/experiences" className={pageStyles.secondaryAction}>
             {currentTranslation.home.experiencesBtn}
           </Link>
-          <Link to="/projects" className={pageStyles.primaryAction}>
+          {/* <Link to="/projects" className={pageStyles.primaryAction}>
             {currentTranslation.home.projectsBtn}
-          </Link>
+          </Link> */}
         </div>
       </div>
     </section>
