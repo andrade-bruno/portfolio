@@ -157,7 +157,7 @@ export const translations: ITranslation[] = [
 		},
 		nav: {
 			home: "Início",
-			experiences: "Minha Jornada",
+			experiences: "Jornada",
 			projects: "Projetos",
 			personal: "Pessoal",
 			search: "Buscar (Ctrl+K)",
