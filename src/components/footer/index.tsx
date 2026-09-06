@@ -43,8 +43,8 @@ export const Footer = () => {
   const exploreLinks = [
     { label: currentTranslation.nav.home, to: "/" },
     { label: currentTranslation.nav.experiences, to: "/experiences" },
-    { label: currentTranslation.nav.projects, to: "/projects" },
-    { label: currentTranslation.nav.personal, to: "/personal" },
+    // { label: currentTranslation.nav.projects, to: "/projects" },
+    // { label: currentTranslation.nav.personal, to: "/personal" },
   ];
 
   return (
