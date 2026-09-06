@@ -26,7 +26,7 @@ function search(query: string): SearchEntry[] {
   );
 }
 
-const pageOrder = ["Home", "Experiences", "Projects", "Personal"];
+const pageOrder = ["Home", "Experiences"];
 
 export const SearchModal = ({ onClose }: Props) => {
   const [query, setQuery] = useState("");
