@@ -1,10 +1,10 @@
 import { CogIcon, ExperiencesIcon, HomeIcon, PersonalIcon, ProjectsIcon, SearchIcon } from "components/icons";
 import { SearchModal } from "components/search-modal";
+import { SettingsDropdown } from "components/settings";
 import { useTranslations } from "contexts/i18n";
 import { useEffect, useRef, useState } from "react";
 import { NavLink } from "react-router";
 import styles from "./navbar.module.scss";
-import { SettingsDropdown } from "./SettingsDropdown";
 
 export const NavBar = () => {
   const [searchOpen, setSearchOpen] = useState(false);
@@ -62,13 +62,11 @@ export const NavBar = () => {
             </button>
 
             {settingsOpen && (
-              <div className={styles.settingsContainer}>
-                <SettingsDropdown
-                  language={currentLanguage}
-                  onLocaleChange={setLanguage}
-                  onClose={() => setSettingsOpen(false)}
-                />
-              </div>
+              <SettingsDropdown
+                language={currentLanguage}
+                onLocaleChange={setLanguage}
+                onClose={() => setSettingsOpen(false)}
+              />
             )}
           </div>
 

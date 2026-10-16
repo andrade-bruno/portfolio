@@ -1,0 +1,107 @@
+@use "styles/index" as index;
+@use "styles/colors" as colors;
+
+.settingsContainer {
+	position: absolute;
+	left: calc(100% + 26px);
+	top: 0;
+	z-index: 60;
+}
+
+@media (max-width: index.$tablet-breakpoint) {
+	.settingsContainer {
+		top: calc(100% + 8px);
+		left: 0;
+	}
+}
+
+.settingsDropdown {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	box-sizing: border-box;
+	background: colors.$primary;
+	border-radius: 12px;
+	padding: 10px;
+	box-shadow: 0 14px 30px rgba(colors.$secondary, 0.08);
+	width: 18rem;
+	max-width: calc(100vw - 2 * index.$padding);
+}
+
+.settingsRow {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	padding: 8px 10px;
+	border-radius: 8px;
+	background: transparent;
+	border: 0;
+	cursor: pointer;
+	font-weight: 700;
+	color: colors.$secondary;
+	transition: index.$transition;
+}
+
+.settingsRow:hover {
+	background: colors.$gray-300;
+}
+
+.settingsClose {
+	margin-top: 8px;
+	background: transparent;
+	border: 0;
+	color: rgba(colors.$secondary, 0.7);
+	font-weight: 600;
+	padding: 6px 8px;
+	border-radius: 8px;
+	cursor: pointer;
+	transition: index.$transition;
+}
+
+.settingsClose:hover {
+	background: colors.$tertiary;
+	color: colors.$primary;
+}
+
+.flagRow {
+	display: flex;
+	gap: 8px;
+	align-items: center;
+}
+
+.flagBtn {
+	background: colors.$gray-300;
+	border: 2px solid rgba(colors.$tertiary, 0.06);
+	padding: 4px;
+	border-radius: 8px;
+	cursor: pointer;
+	transition: index.$transition;
+}
+
+.flagBtn:hover {
+	border-color: colors.$tertiary;
+	transform: translateY(-4px) scale(1.03);
+}
+
+.flagBtn:focus-visible {
+	outline: 2px solid colors.$tertiary;
+	outline-offset: 2px;
+}
+
+.flagImg {
+	width: 36px;
+	height: 20px;
+	display: block;
+	transition: transform 220ms ease;
+}
+
+.activeFlag {
+	box-shadow: 0 10px 28px rgba(colors.$tertiary, 0.16);
+	border-color: colors.$tertiary;
+	transform: scale(1.06);
+}
+
+.flagBtn:active .flagImg {
+	transform: scale(0.98);
+}
