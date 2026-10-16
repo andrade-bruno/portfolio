@@ -198,7 +198,7 @@
 	line-height: 1;
 }
 
-@media (max-width: 900px) {
+@media (max-width: index.$tablet-breakpoint) {
 	.entryCard {
 		grid-template-columns: 1fr;
 	}
@@ -234,7 +234,7 @@
 	}
 }
 
-@media (max-width: 640px) {
+@media (max-width: index.$mobile-breakpoint) {
 	.entryImages {
 		display: flex;
 		flex-direction: column;

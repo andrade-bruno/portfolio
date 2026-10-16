@@ -161,7 +161,7 @@
 	color: colors.$secondary;
 }
 
-@media (max-width: 900px) {
+@media (max-width: index.$tablet-breakpoint) {
 	.topGrid {
 		grid-template-columns: 1fr 1fr;
 		gap: 24px;
@@ -176,7 +176,7 @@
 	}
 }
 
-@media (max-width: 640px) {
+@media (max-width: index.$mobile-breakpoint) {
 	.topGrid {
 		grid-template-columns: 1fr;
 	}

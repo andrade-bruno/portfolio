@@ -14,7 +14,7 @@
 	padding-left: calc(index.$sidebar-width + index.$padding);
 }
 
-@media (max-width: 900px) {
+@media (max-width: index.$tablet-breakpoint) {
 	.main {
 		padding: index.$padding;
 	}

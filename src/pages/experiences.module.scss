@@ -1,4 +1,5 @@
 @use "styles/colors" as colors;
+@use "styles/index" as index;
 
 .timeline {
   position: relative;
@@ -79,7 +80,7 @@
   color: rgba(colors.$secondary, 0.7);
 }
 
-@media (max-width: 900px) {
+@media (max-width: index.$tablet-breakpoint) {
   .skillRow {
     grid-template-columns: 56px 1fr 82px;
     gap: 10px;
@@ -90,7 +91,7 @@
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: index.$mobile-breakpoint) {
   .graphHeader {
     flex-direction: column;
     align-items: flex-start;
